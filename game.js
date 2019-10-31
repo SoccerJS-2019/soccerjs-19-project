@@ -13,6 +13,7 @@ class Game {
     this.obstacleArray.push(newObstacle);
     console.log(this.obstacleArray);
     newObstacle.moveDownForever();
+    
   }
 
   clearUnusedObstacles() {

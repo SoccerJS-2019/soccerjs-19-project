@@ -15,11 +15,7 @@ player.src = "./images/player.png";
 const ball = new Image();
 ball.src = "./images/ball.gif";
 
-<<<<<<< HEAD
-function drawPlayer(u) {      
-=======
 function drawPlayer(u) {
->>>>>>> d5dfbec265c3c4e022310a018add4bfdc75d46a2
   ctx.drawImage(player, u.x, u.y, 100, 50);
 }
 function drawSelf(u, obs) {
@@ -142,7 +138,7 @@ class Obstacle {
   moveDownForever() {
     let setI = setInterval(() => {
       this.y += 1;
-      // this.x += 10 * (Math.random() - 0.5);
+      theGame.collisionDetect(theGame.theHero.x,theGame.theHero.y);
       if (this.y > 420) {
         clearInterval(setI);
         score1 -= 10;
