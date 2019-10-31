@@ -1,6 +1,11 @@
 body {
   background-image: url("images/fifa.jpg");
+  
+  background-position: center center;
   background-size: cover;
+  background-attachment: fixed;
+
+  
 }
 #example {
   border: 0px solid black;
