@@ -1,11 +1,17 @@
 body {
   background-image: url("images/fifa.jpg");
+<<<<<<< HEAD
   
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
 
   
+=======
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+>>>>>>> 8770a0587c9a5e9c2fa570f60f6ddfbb16ba8f4f
 }
 #example {
   border: 0px solid black;
