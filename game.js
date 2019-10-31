@@ -19,8 +19,6 @@ class Game {
   clearUnusedObstacles() {
     this.obstacleArray.forEach((ob, i) => {
       if (ob.y > 420) {
-        score2 += 10;
-        score2T.innerHTML = `${score2}`;
         this.obstacleArray.splice(i, 1);
       }
     });
@@ -29,18 +27,19 @@ class Game {
   collisionDetect(futureX, futureY) {
     let canMove = true;
 
-    this.obstacleArray.forEach(obs => {
+    this.obstacleArray.forEach((obs, j) => {
       if (
         futureX + this.theHero.width >= obs.x &&
         futureX <= obs.x + obs.width &&
         futureY + this.theHero.height >= obs.y &&
         futureY <= obs.y + obs.height
       ) {
-        obs.x = 10000;
-        obs.y = 10000;
+        this.obstacleArray.splice(j, 1);
         canMove = true;
         score1 += 10;
         score1T.innerHTML = `${score1}`;
+      } else if (obs.y > 420) {
+        this.clearUnusedObstacles();
       }
     });
 

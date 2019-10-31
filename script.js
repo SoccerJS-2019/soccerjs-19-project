@@ -65,10 +65,11 @@ function mainLoop() {
     drawSelf(eachObstacle, true);
   });
 
-  if (frames % 100 === 0) {
+  if (frames % 40 === 0) {
     theGame.spawnObstacle();
   }
   requestAnimationFrame(mainLoop);
+  // setTimeout();
 }
 
 function moveHero(futureX, futureY) {
@@ -97,7 +98,7 @@ function moveHero(futureX, futureY) {
   //   }
 }
 
-let speed = 40;
+let speed = 50;
 
 document.onkeydown = function(e) {
   if (e.key === "ArrowUp") {
@@ -119,7 +120,6 @@ document.onkeydown = function(e) {
     if (theGame.collisionDetect(theGame.theHero.x + speed, theGame.theHero.y)) {
       theGame.theHero.move(theGame.theHero.x + speed, theGame.theHero.y);
     }
-    
   }
 };
 
@@ -133,14 +133,14 @@ class Obstacle {
 
   moveDownForever() {
     let setI = setInterval(() => {
-      //    each setInterval function gets a unique ID
-      // were using blah here to save this ID
-      this.y += 10;
-
-      if (this.y > 400) {
+      this.y += 1;
+      // this.x += 10 * (Math.random() - 0.5);
+      if (this.y > 420) {
         clearInterval(setI);
+        score2 += 10;
+        score2T.innerHTML = `${score2}`;
       }
-    }, 100);
+    }, 5);
   }
 }
 
