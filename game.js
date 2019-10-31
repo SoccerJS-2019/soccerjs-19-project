@@ -7,10 +7,10 @@ class Game {
     (this.theHero = new Hero(150, 340, 50, 50)), (this.obstacleArray = []);
   }
   spawnObstacle() {
-    let rX = Math.floor(Math.random() * 420);
-    let rY = Math.floor(Math.random() * 10);
-    let rWidth = Math.floor(Math.random() * 100) + 70;
-    let rHeight = Math.floor(Math.random() * 100) + 30;
+    let rX = Math.floor(Math.random() * 400);
+    let rY = Math.floor(Math.random() * 1);
+    let rWidth = 80;
+    let rHeight = 60;
     let newObstacle = new Obstacle(rX, rY, rWidth, rHeight);
     this.obstacleArray.push(newObstacle);
     newObstacle.moveDownForever();
