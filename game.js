@@ -1,8 +1,8 @@
-let score1 = 0;
+
 let score1T = document.getElementById("score1");
 class Game {
   constructor() {
-    this.theHero = new Hero(150, 340, 50, 50); this.obstacleArray = [];
+    this.theHero = new Hero(150, 340, 50, 50); this.obstacleArray = [];this.score=0;
   }
   spawnObstacle() {
     let rX = Math.floor(Math.random() * 360);
@@ -21,6 +21,8 @@ class Game {
       if (ob.y > 420) {
         console.log("clearing the obstacle");
         this.obstacleArray.splice(i, 1);
+        theGame.score-=10;
+        document.getElementById("score1").innerHTML = `${theGame.score}`;
       }
     });
   }
@@ -37,10 +39,10 @@ class Game {
       ) {
         this.obstacleArray.splice(j, 1);
         canMove = true;
-        score1 += 10;
-        score1T.innerHTML = `${score1}`;
+        theGame.score += 10;
+        document.getElementById("score1").innerHTML = `${theGame.score}`;
       } else {
-        this.clearUnusedObstacles();
+        //this.clearUnusedObstacles();
       }
     });
 

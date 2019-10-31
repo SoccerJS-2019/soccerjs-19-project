@@ -141,9 +141,9 @@ class Obstacle {
       theGame.collisionDetect(theGame.theHero.x,theGame.theHero.y);
       if (this.y > 420) {
         clearInterval(setI);
-        score1 -= 10;
+        theGame.score-=10;
 
-        score1T.innerHTML = `${score1}`;
+        document.getElementById("score1").innerHTML = `${theGame.score}`;
       }
     }, 5);
   }
