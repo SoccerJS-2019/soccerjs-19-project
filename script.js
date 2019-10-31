@@ -15,7 +15,7 @@ player.src = "./images/player.png";
 const ball = new Image();
 ball.src = "./images/ball.gif";
 
-function drawPlayer(u, obs) {
+function drawPlayer(u) {      
   ctx.drawImage(player, u.x, u.y, 100, 50);
 }
 function drawSelf(u, obs) {
@@ -61,9 +61,9 @@ function mainLoop() {
   theGame.obstacleArray.forEach(eachObstacle => {
     drawSelf(eachObstacle, true);
   });
-  theGame.obstacleArray.forEach(eachObstacle => {
-    drawSelf(eachObstacle, true);
-  });
+  // theGame.obstacleArray.forEach(eachObstacle => {
+  //   drawSelf(eachObstacle, true);
+  // });
 
   if (frames % 40 === 0) {
     theGame.spawnObstacle();
