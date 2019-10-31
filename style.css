@@ -1,0 +1,18 @@
+body {
+  background-image: url("images/fifa.jpg");
+  background-size: cover;
+}
+#example {
+  border: 0px solid black;
+  border-radius: 3px;
+  width: 432px;
+  height: 580px;
+  background-color: #ddd;
+  background-image: url("images/soccer.jpg");
+  background-size: contain;
+}
+#start {
+  width: 30vh;
+  height: 10vh;
+  cursor: pointer;
+}
