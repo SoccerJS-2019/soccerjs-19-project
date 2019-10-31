@@ -15,7 +15,7 @@ player.src = "./images/player.png";
 const ball = new Image();
 ball.src = "./images/ball.gif";
 
-function drawPlayer(u, obs) {
+function drawPlayer(u) {
   ctx.drawImage(player, u.x, u.y, 100, 50);
 }
 function drawSelf(u, obs) {
@@ -51,7 +51,6 @@ let frames = 0;
 // }
 function mainLoop() {
   frames++;
-
   ctx.clearRect(0, 0, 400, 400);
 
   // this is where we draw the hero
@@ -73,8 +72,6 @@ function mainLoop() {
 }
 
 function moveHero(futureX, futureY) {
-  console.log(this)
-
   if (
     futureX + this.width <= 400 &&
     futureX >= 0 &&
@@ -85,7 +82,7 @@ function moveHero(futureX, futureY) {
     this.y = futureY;
   }
   if (futureX + this.width >= 380) {
-    console.log("hey")
+    console.log("hey");
     this.x = futureX;
     this.x -= 50;
 
@@ -105,6 +102,9 @@ function moveHero(futureX, futureY) {
 let speed = 50;
 
 document.onkeydown = function(e) {
+  if (e.keyCode == 32) {
+    theGame.theHero.move(theGame.theHero.x, 340);
+  }
   if (e.key === "ArrowUp") {
     if (theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y - speed)) {
       theGame.theHero.move(theGame.theHero.x, theGame.theHero.y - speed);
@@ -141,8 +141,9 @@ class Obstacle {
       // this.x += 10 * (Math.random() - 0.5);
       if (this.y > 420) {
         clearInterval(setI);
-        score2 += 10;
-        score2T.innerHTML = `${score2}`;
+        score1 -= 10;
+
+        score1T.innerHTML = `${score1}`;
       }
     }, 5);
   }
