@@ -4,7 +4,7 @@ let score2 = 0;
 let score2T = document.getElementById("score2");
 class Game {
   constructor() {
-    (this.theHero = new Hero(150, 340, 50, 50)), (this.obstacleArray = []);
+    this.theHero = new Hero(150, 340, 50, 50); this.obstacleArray = [];
   }
   spawnObstacle() {
     let rX = Math.floor(Math.random() * 360);
