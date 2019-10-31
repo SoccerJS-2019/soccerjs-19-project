@@ -73,6 +73,8 @@ function mainLoop() {
 }
 
 function moveHero(futureX, futureY) {
+  console.log(this)
+
   if (
     futureX + this.width <= 400 &&
     futureX >= 0 &&
@@ -82,20 +84,22 @@ function moveHero(futureX, futureY) {
     this.x = futureX;
     this.y = futureY;
   }
-  //   if (futureX + Hero.theHero.width >= 400) {
-  //     hero.x = futureX;
+  if (futureX + this.width >= 380) {
+    console.log("hey")
+    this.x = futureX;
+    this.x -= 50;
 
-  //     setTimeout(() => {
-  //       hero.x -= 30;
-  //       hero.width = 35;
-  //       hero.height = 35;
-  //     }, 100);
+    // setTimeout(() => {
+    //   this.x -= 30;
+    //   this.width = 35;
+    //   this.height = 35;
+    // }, 100);
 
-  //     setTimeout(() => {
-  //       hero.width = 20;
-  //       hero.height = 20;
-  //     }, 200);
-  //   }
+    // setTimeout(() => {
+    //   this.width = 20;
+    //   this.height = 20;
+    // }, 200);
+  }
 }
 
 let speed = 50;
