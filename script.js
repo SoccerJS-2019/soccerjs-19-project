@@ -19,6 +19,7 @@ class Obstacle {
   moveDownForever() {
     setInterval(() => {
       this.y += 2;
+      this.x += 5;
       theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
     }, 8);
   }
