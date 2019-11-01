@@ -137,7 +137,7 @@ class Obstacle {
 
   moveDownForever() {
     let setI = setInterval(() => {
-      this.y += 1;
+      this.y += 2;
       theGame.collisionDetect(theGame.theHero.x,theGame.theHero.y);
       if (this.y > 420) {
         clearInterval(setI);
@@ -145,7 +145,7 @@ class Obstacle {
 
         score1T.innerHTML = `${score1}`;
       }
-    }, 5);
+    }, 8);
   }
 }
 

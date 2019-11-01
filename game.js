@@ -2,18 +2,18 @@ let score1 = 0;
 let score1T = document.getElementById("score1");
 class Game {
   constructor() {
-    this.theHero = new Hero(150, 340, 50, 50); this.obstacleArray = [];
+    this.theHero = new Hero(150, 340, 50, 50);
+    this.obstacleArray = [];
   }
   spawnObstacle() {
     let rX = Math.floor(Math.random() * 360);
     let rY = Math.floor(Math.random() * 1);
-    let rWidth = 150;
+    let rWidth = 80;
     let rHeight = 60;
     let newObstacle = new Obstacle(rX, rY, rWidth, rHeight);
     this.obstacleArray.push(newObstacle);
     console.log(this.obstacleArray);
     newObstacle.moveDownForever();
-    
   }
 
   clearUnusedObstacles() {
