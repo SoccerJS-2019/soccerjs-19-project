@@ -1,9 +1,12 @@
-let score1 = 0;
 let score1T = document.getElementById("score1");
 class Game {
   constructor() {
     this.theHero = new Hero(150, 340, 50, 50);
     this.obstacleArray = [];
+    this.score = 0;
+  }
+  writeScore() {
+    document.getElementById("score1").innerHTML = `${this.score}`;
   }
   spawnObstacle() {
     let rX = Math.floor(Math.random() * 360);
@@ -14,6 +17,7 @@ class Game {
     this.obstacleArray.push(newObstacle);
     console.log(this.obstacleArray);
     newObstacle.moveDownForever();
+    this.clearUnusedObstacles();
   }
 
   clearUnusedObstacles() {
@@ -21,6 +25,8 @@ class Game {
       if (ob.y > 420) {
         console.log("clearing the obstacle");
         this.obstacleArray.splice(i, 1);
+        this.score -= 10;
+        this.writeScore();
       }
     });
   }
@@ -30,17 +36,16 @@ class Game {
 
     this.obstacleArray.forEach((obs, j) => {
       if (
-        futureX + this.theHero.width >= obs.x &&
-        futureX <= obs.x + obs.width &&
+        futureX + 30 + this.theHero.width >= obs.x &&
+        futureX + 30 <= obs.x + obs.width &&
         futureY + this.theHero.height >= obs.y &&
         futureY <= obs.y + obs.height
       ) {
-        this.obstacleArray.splice(j, 1);
         canMove = true;
-        score1 += 10;
-        score1T.innerHTML = `${score1}`;
-      } else {
-        this.clearUnusedObstacles();
+        this.obstacleArray.splice(j, 1);
+
+        theGame.score += 10;
+        writeScore();
       }
     });
 
