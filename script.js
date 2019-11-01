@@ -103,7 +103,26 @@ document.onkeydown = function(e) {
   }
 };
 
-const ctx = document.getElementById("example").getContext("2d");
+class Obstacle {
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
+
+  moveDownForever() {
+    let setI = setInterval(() => {
+      this.y += 2;
+      theGame.collisionDetect(theGame.theHero.x,theGame.theHero.y);
+      if (this.y > 420) {
+        clearInterval(setI);
+             
+      }
+    }, 8);
+  }
+}
+
 document.getElementById("start").onclick = startGame;
 
 let theGame;
