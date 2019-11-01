@@ -6,6 +6,7 @@ class Hero {
     this.y = y;
     this.height = height;
     this.width = width;
+    
   }
 }
 class Obstacle {
@@ -14,12 +15,15 @@ class Obstacle {
     this.y = y;
     this.width = width;
     this.height = height;
+    this.direction=1;
   }
 
   moveDownForever() {
     setInterval(() => {
-      this.y += 2;
-      this.x += 5;
+      this.y += 2*Math.random()+1.5;
+      this.x+=(5*this.direction); //
+      if(this.x>=340){this.direction=-1};
+      if(this.x<=-10){this.direction=1};
       theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
     }, 8);
   }
