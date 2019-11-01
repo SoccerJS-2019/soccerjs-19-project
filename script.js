@@ -51,6 +51,7 @@ let frames = 0;
 // }
 function mainLoop() {
   frames++;
+  setTimeout(theGame.writeScore(),500);
   ctx.clearRect(0, 0, 400, 400);
 
   // this is where we draw the hero
@@ -141,9 +142,7 @@ class Obstacle {
       theGame.collisionDetect(theGame.theHero.x,theGame.theHero.y);
       if (this.y > 420) {
         clearInterval(setI);
-        theGame.score-=10;
-
-        document.getElementById("score1").innerHTML = `${theGame.score}`;
+             
       }
     }, 5);
   }
