@@ -1,5 +1,5 @@
-const ctx = document.getElementById("example").getContext("2d")
-
+const ctx = document.getElementById("example").getContext("2d");
+let obstacleArray = [];
 class Hero {
   constructor(x, y, width, height) {
     this.x = x;
@@ -8,18 +8,23 @@ class Hero {
     this.width = width;
   }
 }
+class Obstacle {
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
 
-// class Obstacle {
-//   constructor(x, y, width, height) {
-//     this.x = x;
-//     this.y = y;
-//     this.width = width;
-//     this.height = height;
-//   }
-// }
+  moveDownForever() {
+    setInterval(() => {
+      this.y += 2;
+      theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
+    }, 8);
+  }
+}
 
-
-Hero.prototype.move = moveHero;
+//Hero.prototype.move = moveHero;
 
 const player = new Image();
 player.src = "./images/player.png";
@@ -41,87 +46,45 @@ let frames = 0;
 
 function mainLoop() {
   frames++;
-  setTimeout(theGame.writeScore(), 400);
+  setTimeout(theGame.writeScore(), theGame.clearUnusedObstacles(), 400);
   ctx.clearRect(0, 0, 400, 400);
 
   // this is where we draw the hero
-  drawPlayer(theGame.theHero, false);
-  //drawSelf(theGame.theHero, false);
+  drawPlayer(theGame.theHero);
   // then we draw all the obstacles
-  theGame.obstacleArray.forEach(eachObstacle => {
+  obstacleArray.forEach(eachObstacle => {
     drawSelf(eachObstacle, true);
   });
 
-  if (frames % 40 === 0) {
+  if (frames % 35 === 0) {
     theGame.spawnObstacle();
   }
   requestAnimationFrame(mainLoop);
-}
-
-function moveHero(futureX, futureY) {
-  if (
-    futureX + this.width <= 400 &&
-    futureX >= 0 &&
-    futureY + this.height <= 400 &&
-    futureY >= 0
-  ) {
-    this.x = futureX;
-    this.y = futureY;
-  }
-  if (futureX + this.width >= 380) {
-    console.log("hey");
-    this.x = futureX;
-    this.x -= 50;
-  }
 }
 
 let speed = 50;
 
 document.onkeydown = function(e) {
   if (e.keyCode == 32) {
-    theGame.theHero.move(theGame.theHero.x, 340);
+    theGame.moveHero(theGame.theHero.x, 340);
   }
   if (e.key === "ArrowUp") {
-    if (theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y - speed)) {
-      theGame.theHero.move(theGame.theHero.x, theGame.theHero.y - speed);
-    }
+    theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y - speed);
+    theGame.moveHero(theGame.theHero.x, theGame.theHero.y - speed);
   }
   if (e.key === "ArrowDown") {
-    if (theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y + speed)) {
-      theGame.theHero.move(theGame.theHero.x, theGame.theHero.y + speed);
-    }
+    theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y + speed);
+    theGame.moveHero(theGame.theHero.x, theGame.theHero.y + speed);
   }
   if (e.key === "ArrowLeft") {
-    if (theGame.collisionDetect(theGame.theHero.x - speed, theGame.theHero.y)) {
-      theGame.theHero.move(theGame.theHero.x - speed, theGame.theHero.y);
-    }
+    theGame.collisionDetect(theGame.theHero.x - speed, theGame.theHero.y);
+    theGame.moveHero(theGame.theHero.x - speed, theGame.theHero.y);
   }
   if (e.key === "ArrowRight") {
-    if (theGame.collisionDetect(theGame.theHero.x + speed, theGame.theHero.y)) {
-      theGame.theHero.move(theGame.theHero.x + speed, theGame.theHero.y);
-    }
+    theGame.collisionDetect(theGame.theHero.x + speed, theGame.theHero.y);
+    theGame.moveHero(theGame.theHero.x + speed, theGame.theHero.y);
   }
 };
-
-class Obstacle {
-  constructor(x, y, width, height) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-  }
-
-  moveDownForever() {
-    let setI = setInterval(() => {
-      this.y += 2;
-      theGame.collisionDetect(theGame.theHero.x,theGame.theHero.y);
-      if (this.y > 420) {
-        clearInterval(setI);
-             
-      }
-    }, 8);
-  }
-}
 
 document.getElementById("start").onclick = startGame;
 
