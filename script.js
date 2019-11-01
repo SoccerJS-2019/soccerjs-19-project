@@ -51,7 +51,7 @@ let frames = 0;
 // }
 function mainLoop() {
   frames++;
-  setTimeout(theGame.writeScore(),500);
+  setTimeout(theGame.writeScore(),400);
   ctx.clearRect(0, 0, 400, 400);
 
   // this is where we draw the hero

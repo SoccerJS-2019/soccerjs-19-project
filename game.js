@@ -36,13 +36,14 @@ class Game {
 
     this.obstacleArray.forEach((obs, j) => {
       if (
-        futureX + this.theHero.width >= obs.x &&
-        futureX <= obs.x + obs.width &&
+        futureX+30 + this.theHero.width >= obs.x &&
+        futureX+30 <= obs.x + obs.width &&
         futureY + this.theHero.height >= obs.y &&
         futureY <= obs.y + obs.height
       ) {
-        this.obstacleArray.splice(j, 1);
         canMove = true;
+        this.obstacleArray.splice(j, 1);
+        
         theGame.score += 10;
         writeScore();
       } 
