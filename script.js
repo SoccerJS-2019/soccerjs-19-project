@@ -15,7 +15,7 @@ class Obstacle {
     this.y = y;
     this.width = width;
     this.height = height;
-    this.direction=1;
+    this.direction=Math.floor(2*Math.random()-1);
   }
 
   moveDownForever() {
