@@ -1,4 +1,4 @@
-
+const ctx = document.getElementById("example").getContext("2d")
 
 class Hero {
   constructor(x, y, width, height) {
@@ -9,14 +9,14 @@ class Hero {
   }
 }
 
-class Obstacle {
-  constructor(x, y, width, height) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-  }
-
+// class Obstacle {
+//   constructor(x, y, width, height) {
+//     this.x = x;
+//     this.y = y;
+//     this.width = width;
+//     this.height = height;
+//   }
+// }
 
 
 Hero.prototype.move = moveHero;

@@ -43,7 +43,7 @@ class Game {
       ) {
         this.obstacleArray.splice(j, 1);
         theGame.score += 10;
-        writeScore();
+        this.writeScore();
       }
     });
 
