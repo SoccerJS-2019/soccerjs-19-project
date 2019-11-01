@@ -1,4 +1,15 @@
 
+
+  moveDownForever() {
+    let setI = setInterval(() => {
+      this.y += 1;
+      theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
+      if (this.y > 420) {
+        clearInterval(setI);
+      }
+    }, 5);
+  }
+}
 let score1T = document.getElementById("score1");
 class Game {
   constructor() {
@@ -36,14 +47,13 @@ class Game {
 
     this.obstacleArray.forEach((obs, j) => {
       if (
-        futureX+30 + this.theHero.width >= obs.x &&
-        futureX+30 <= obs.x + obs.width &&
+        futureX +25+  this.theHero.width >= obs.x &&
+        futureX +25<= obs.x + obs.width &&
         futureY + this.theHero.height >= obs.y &&
         futureY <= obs.y + obs.height
       ) {
-        canMove = true;
         this.obstacleArray.splice(j, 1);
-        
+        canMove = true;
         theGame.score += 10;
         writeScore();
       } 
@@ -51,4 +61,5 @@ class Game {
 
     return canMove;
   }
+  
 }
