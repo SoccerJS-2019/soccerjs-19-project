@@ -8,6 +8,7 @@ class Hero {
     this.width = width;
   }
 }
+
 class Obstacle {
   constructor(x, y, width, height) {
     this.x = x;
