@@ -41,10 +41,8 @@ class Game {
       this.theHero.x -= 50;
     }
   }
-
   collisionDetect(futureX, futureY) {
     //let canMove = true;
-
     obstacleArray.forEach((obs, j) => {
       if (
         futureX + 30 + this.theHero.width >= obs.x &&
