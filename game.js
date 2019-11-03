@@ -16,6 +16,7 @@ class Game {
     obstacleArray.push(newObstacle);
     newObstacle.moveDownForever();
   }
+
   clearUnusedObstacles() {
     obstacleArray.forEach((ob, i) => {
       if (ob.y > 420) {
