@@ -16,6 +16,7 @@ class Obstacle {
     this.height = height;
     this.direction = Math.floor(2 * Math.random() - 1);
   }
+  
   moveDownForever() {
     setInterval(() => {
       this.y += 2 * Math.random() + 1.5;
