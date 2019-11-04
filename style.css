@@ -37,7 +37,13 @@ body {
   perspective: 1000px;
 }
 .shaking {
-  animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 100px;
+}
+.redshaking {
+  animation: shake 0.8s cubic-bezier(1.36, 1.17, 1.39, 1.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;

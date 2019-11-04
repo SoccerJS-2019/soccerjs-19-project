@@ -17,7 +17,7 @@ class Game {
     newObstacle.moveDownForever();
   }
   /////////////
-  spawnRed(){
+  spawnRed() {
     let rX = Math.floor(Math.random() * 325);
     let rY = Math.floor(Math.random() * 1);
     let rWidth = 80;
@@ -25,7 +25,6 @@ class Game {
     let newRedBall = new RedBall(rX, rY, rWidth, rHeight);
     redArray.push(newRedBall);
     newRedBall.moveDownForever();
-
   }
   ///////////////
   clearUnusedObstacles() {
@@ -33,18 +32,18 @@ class Game {
     redArray.forEach((redBall, i) => {
       if (redBall.y > 380) {
         redArray.splice(i, 1);
-       }
+      }
     });
     ////////////
     obstacleArray.forEach((ob, i) => {
       if (ob.y > 380) {
         console.log("clearing the obstacle");
         obstacleArray.splice(i, 1);
-        this.score -= 10;
+        this.score -= 20;
         document.querySelector("#example").classList.add("shaking");
         setTimeout(() => {
           document.querySelector("#example").classList.remove("shaking");
-        }, 500);
+        }, 400);
       }
     });
   }
@@ -75,7 +74,7 @@ class Game {
         futureY <= redBall.y + redBall.height
       ) {
         redArray.splice(j, 1);
-        theGame.score -= 10;
+        theGame.score -= 500;
       }
     });
     ///////////////////////
@@ -88,6 +87,10 @@ class Game {
       ) {
         obstacleArray.splice(j, 1);
         theGame.score += 10;
+        document.querySelector("#example").classList.add("shaking");
+        setTimeout(() => {
+          document.querySelector("#example").classList.remove("shaking");
+        }, 400);
       }
     });
   }
