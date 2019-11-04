@@ -1,4 +1,63 @@
 const ctx = document.getElementById("example").getContext("2d");
+<<<<<<< HEAD
+=======
+let obstacleArray = [];
+let redArray = [];
+class Hero {
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.height = height;
+    this.width = width;
+  }
+}
+/////////////////////////////
+class Obstacle {
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.direction = Math.floor(2 * Math.random() + 0);
+  }
+  moveDownForever() {
+    setInterval(() => {
+      this.y += 2 * Math.random() + 1.5;
+      this.x += Math.random() * 10 * this.direction; //
+      if (this.x >= 340) {
+        this.direction = -1;
+      }
+      if (this.x <= -10) {
+        this.direction = 1;
+      }
+      theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
+    }, 8);
+  }
+}
+////////////////////////////Hero.prototype.move = moveHero;
+class RedBall {
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.direction = Math.floor(2 * Math.random() - 1);
+  }
+  moveDownForever() {
+    setInterval(() => {
+      this.y += 2 * Math.random();
+      this.x += this.direction; //
+      if (this.x >= 340) {
+        this.direction = -1;
+      }
+      if (this.x <= -10) {
+        this.direction = 1;
+      }
+      theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
+    }, 8);
+  }
+}
+>>>>>>> 3c20d7e05d524b05ef82e71381086259a08742b2
 
 //////////////////////////////////////
 const player = new Image();
@@ -24,7 +83,7 @@ function drawSelf(u, obs) {
 
 function drawRedBall(u, obs) {
   if (obs) {
-    ctx.drawImage(redBall, u.x, u.y, 150, 110);
+    ctx.drawImage(redBall, u.x, u.y, 80, 50);
   } else {
     ctx.drawImage(player, u.x, u.y, 40, 60);
   }
@@ -58,7 +117,7 @@ function mainLoop() {
     theGame.spawnObstacle();
   }
 
-  if (frames % 400 === 0) {
+  if (frames % 300 === 0) {
     theGame.spawnRed();
   }
 

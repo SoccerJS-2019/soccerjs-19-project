@@ -126,13 +126,13 @@ class Game {
     //////////////////////
     redArray.forEach((redBall, j) => {
       if (
-        futureX + 30 + this.theHero.width >= redBall.x &&
-        futureX + 30 <= redBall.x + redBall.width &&
+        futureX + 20 + this.theHero.width >= redBall.x &&
+        futureX + 20 <= redBall.x + redBall.width &&
         futureY + this.theHero.height >= redBall.y &&
         futureY <= redBall.y + redBall.height
       ) {
         redArray.splice(j, 1);
-        theGame.score -= 500;
+        theGame.score -= 300;
       }
     });
     ///////////////////////
@@ -145,9 +145,9 @@ class Game {
       ) {
         obstacleArray.splice(j, 1);
         theGame.score += 10;
-        document.querySelector("#example").classList.add("shaking");
+        document.querySelector("#score").classList.add("shaking");
         setTimeout(() => {
-          document.querySelector("#example").classList.remove("shaking");
+          document.querySelector("#score").classList.remove("shaking");
         }, 400);
       }
     });

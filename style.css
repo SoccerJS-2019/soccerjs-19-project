@@ -1,20 +1,22 @@
 body {
-  background-image: url("images/fifa.jpg");
+  background-image: url("https://images.alphacoders.com/516/thumb-1920-516154.jpg");
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
   overflow: hidden;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "McLaren", cursive;
+  font-family: "Righteous", cursive;
+  font-family: "Rajdhani", sans-serif;
 }
-#score{
+#score {
   font-size: 60px;
   width: 20%;
-  margin-left:5%;
-  margin-top:5%;
+  margin-left: 5%;
+  margin-top: 5%;
   height: 70px;
-  background-color: rgba(223, 107, 107, 0.5);
+  /* background-color: rgba(63, 56, 77, 0.5);*/
   border-radius: 15%;
-  
+  color: white;
 }
 #example {
   border: 0px solid black;
@@ -38,12 +40,6 @@ body {
 }
 .shaking {
   animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 100px;
-}
-.redshaking {
-  animation: shake 0.8s cubic-bezier(1.36, 1.17, 1.39, 1.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
