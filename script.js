@@ -16,7 +16,7 @@ class Obstacle {
     this.y = y;
     this.width = width;
     this.height = height;
-    this.direction = Math.floor(2 * Math.random() - 1);
+    this.direction = Math.floor(2 * Math.random() + 0);
   }
   moveDownForever() {
     setInterval(() => {
@@ -44,7 +44,7 @@ class RedBall {
   moveDownForever() {
     setInterval(() => {
       this.y += 2 * Math.random();
-      this.x += Math.random() * 2 * this.direction; //
+      this.x += this.direction; //
       if (this.x >= 340) {
         this.direction = -1;
       }
@@ -78,7 +78,7 @@ function drawSelf(u, obs) {
 
 function drawRedBall(u, obs) {
   if (obs) {
-    ctx.drawImage(redBall, u.x, u.y, 150, 110);
+    ctx.drawImage(redBall, u.x, u.y, 80, 50);
   } else {
     ctx.drawImage(player, u.x, u.y, 40, 60);
   }
@@ -107,7 +107,7 @@ function mainLoop() {
     theGame.spawnObstacle();
   }
 
-  if (frames % 400 === 0) {
+  if (frames % 300 === 0) {
     theGame.spawnRed();
   }
 
