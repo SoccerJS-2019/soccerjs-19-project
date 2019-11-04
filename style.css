@@ -5,13 +5,14 @@ body {
   background-attachment: fixed;
   overflow: hidden;
 }
-/* #center1 {        
-  display:flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
+#score{
+  width: 10%;
+  margin-left:5%;
+  margin-top:5%;
+  height: 10%;
+  background-color: red;
   
-} */
+}
 #example {
   border: 0px solid black;
   border-radius: 3px;
