@@ -1,5 +1,6 @@
 body {
   background-image: url("https://images.alphacoders.com/516/thumb-1920-516154.jpg");
+  background-color: grey;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -8,15 +9,53 @@ body {
   font-family: "Righteous", cursive;
   font-family: "Rajdhani", sans-serif;
 }
+figure {
+  width: 360px;
+  height: 60px;
+  cursor: pointer;
+}
+figure div {
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: 0.25s;
+  -webkit-transition: 0.25s;
+}
+figure:hover div {
+  transform: rotateX(-90deg);
+}
+span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  border: 3px solid #fff;
+  border-radius: 7px;
+  line-height: 50px;
+  font-size: 21pt;
+  text-align: center;
+  text-transform: uppercase;
+}
+span:nth-child(1) {
+  color: white;
+  transform: translate3d(0, 0, 30px);
+  -webkit-transform: translate3d(0, 0, 30px);
+}
+span:nth-child(2) {
+  color: blue;
+  background: white;
+  transform: rotateX(90deg) translate3d(0, 0, 30px);
+  -webkit-transform: rotateX(90deg) translate3d(0, 0, 30px);
+}
+
 #score {
   font-size: 60px;
-  width: 20%;
-  margin-left: 5%;
-  margin-top: 5%;
-  height: 70px;
   /* background-color: rgba(63, 56, 77, 0.5);*/
   border-radius: 15%;
-  color: white;
+  color: rgba(255, 255, 255, 1);
+  position: fixed;
+  margin-left: 4%;
+  margin-top: 4%;
 }
 #example {
   border: 0px solid black;
