@@ -5,17 +5,16 @@ body {
   background-attachment: fixed;
   overflow: hidden;
 }
-<<<<<<< HEAD
 #score{
-  width: 10%;
+  font-size: 60px;
+  width: 20%;
   margin-left:5%;
   margin-top:5%;
-  height: 10%;
-  background-color: red;
+  height: 70px;
+  background-color: rgba(223, 107, 107, 0.5);
+  border-radius: 15%;
   
 }
-=======
->>>>>>> 81a8a2e7f36f0f3825eddbcdc64e517ff5d609b2
 #example {
   border: 0px solid black;
   border-radius: 3px;
