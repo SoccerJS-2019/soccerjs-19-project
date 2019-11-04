@@ -63,7 +63,7 @@ function mainLoop() {
     drawSelf(eachObstacle, true);
   });
 
-  if (frames % 20 === 0) {
+  if (frames % 25 === 0) {
     theGame.spawnObstacle();
   }
   requestAnimationFrame(mainLoop);
