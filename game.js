@@ -1,3 +1,61 @@
+let obstacleArray = [];
+let redArray = [];
+class Hero {
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.height = height;
+    this.width = width;
+  }
+}
+/////////////////////////////
+class Obstacle {
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.direction = Math.floor(2 * Math.random() - 1);
+  }
+  moveDownForever() {
+    setInterval(() => {
+      this.y += 2 * Math.random() + 1.5;
+      this.x += Math.random() * 10 * this.direction; //
+      if (this.x >= 340) {
+        this.direction = -1;
+      }
+      if (this.x <= -10) {
+        this.direction = 1;
+      }
+      theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
+    }, 8);
+  }
+}
+////////////////////////////Hero.prototype.move = moveHero;
+class RedBall {
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.direction = Math.floor(2 * Math.random() - 1);
+  }
+  moveDownForever() {
+    setInterval(() => {
+      this.y += 2 * Math.random();
+      this.x += Math.random() * 2 * this.direction; //
+      if (this.x >= 340) {
+        this.direction = -1;
+      }
+      if (this.x <= -10) {
+        this.direction = 1;
+      }
+      theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
+    }, 8);
+  }
+}
+
+
 class Game {
   constructor() {
     this.theHero = new Hero(150, 340, 50, 50);
