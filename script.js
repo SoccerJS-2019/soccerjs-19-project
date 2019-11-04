@@ -44,7 +44,7 @@ class RedBall {
   moveDownForever() {
     setInterval(() => {
       this.y += 2 * Math.random();
-      this.x += Math.random() * 10 * this.direction; //
+      this.x += Math.random() * 2 * this.direction; //
       if (this.x >= 340) {
         this.direction = -1;
       }
@@ -107,7 +107,7 @@ function mainLoop() {
     theGame.spawnObstacle();
   }
 
-  if (frames % 150 === 0) {
+  if (frames % 400 === 0) {
     theGame.spawnRed();
   }
 
