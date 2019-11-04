@@ -1,6 +1,6 @@
 const ctx = document.getElementById("example").getContext("2d");
 let obstacleArray = [];
-let redArray=[];
+let redArray = [];
 class Hero {
   constructor(x, y, width, height) {
     this.x = x;
@@ -43,7 +43,7 @@ class RedBall {
   }
   moveDownForever() {
     setInterval(() => {
-      this.y += 2 * Math.random() + 1.5;
+      this.y += 2 * Math.random();
       this.x += Math.random() * 10 * this.direction; //
       if (this.x >= 340) {
         this.direction = -1;
@@ -59,8 +59,8 @@ class RedBall {
 //////////////////////////////////////
 const player = new Image();
 player.src = "./images/player.png";
-const redBall=new Image();
-redBall.src="./images/redBall.jpg"
+const redBall = new Image();
+redBall.src = "./images/redball.png";
 const ball = new Image();
 ball.src = "./images/ball.gif";
 
@@ -78,7 +78,7 @@ function drawSelf(u, obs) {
 
 function drawRedBall(u, obs) {
   if (obs) {
-    ctx.drawImage(redBall, u.x, u.y, 90, 120);
+    ctx.drawImage(redBall, u.x, u.y, 150, 110);
   } else {
     ctx.drawImage(player, u.x, u.y, 40, 60);
   }
@@ -98,15 +98,19 @@ function mainLoop() {
   obstacleArray.forEach(eachObstacle => {
     drawSelf(eachObstacle, true);
   });
-
-  if (frames % 25 === 0) {
+  /////////////
+  redArray.forEach(redBall => {
+    drawRedBall(redBall, true);
+  });
+  ////////////////////
+  if (frames % 40 === 0) {
     theGame.spawnObstacle();
   }
 
-  if (frames % 50 === 0) {
+  if (frames % 150 === 0) {
     theGame.spawnRed();
   }
-  
+
   requestAnimationFrame(mainLoop);
 }
 
