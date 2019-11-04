@@ -1,5 +1,6 @@
 const ctx = document.getElementById("example").getContext("2d");
 let obstacleArray = [];
+let redArray=[];
 class Hero {
   constructor(x, y, width, height) {
     this.x = x;
@@ -8,6 +9,7 @@ class Hero {
     this.width = width;
   }
 }
+/////////////////////////////
 class Obstacle {
   constructor(x, y, width, height) {
     this.x = x;
@@ -30,11 +32,35 @@ class Obstacle {
     }, 8);
   }
 }
+////////////////////////////Hero.prototype.move = moveHero;
+class RedBall {
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.direction = Math.floor(2 * Math.random() - 1);
+  }
+  moveDownForever() {
+    setInterval(() => {
+      this.y += 2 * Math.random() + 1.5;
+      this.x += Math.random() * 10 * this.direction; //
+      if (this.x >= 340) {
+        this.direction = -1;
+      }
+      if (this.x <= -10) {
+        this.direction = 1;
+      }
+      theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
+    }, 8);
+  }
+}
 
-//Hero.prototype.move = moveHero;
-
+//////////////////////////////////////
 const player = new Image();
 player.src = "./images/player.png";
+const redBall=new Image();
+redBall.src="./images/redBall.jpg"
 const ball = new Image();
 ball.src = "./images/ball.gif";
 
@@ -48,7 +74,17 @@ function drawSelf(u, obs) {
     ctx.drawImage(player, u.x, u.y, 40, 60);
   }
 }
+/////////////////////////////
 
+function drawRedBall(u, obs) {
+  if (obs) {
+    ctx.drawImage(redBall, u.x, u.y, 90, 120);
+  } else {
+    ctx.drawImage(player, u.x, u.y, 40, 60);
+  }
+}
+
+/////////////////////////////
 let frames = 0;
 
 function mainLoop() {
@@ -62,10 +98,19 @@ function mainLoop() {
   obstacleArray.forEach(eachObstacle => {
     drawSelf(eachObstacle, true);
   });
-
+  /////////////
+  redArray.forEach(redBall => {
+    drawRedBall(redBall, true);
+  });
+////////////////////
   if (frames % 20 === 0) {
     theGame.spawnObstacle();
   }
+
+  if (frames % 50 === 0) {
+    theGame.spawnRed();
+  }
+  
   requestAnimationFrame(mainLoop);
 }
 

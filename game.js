@@ -16,8 +16,26 @@ class Game {
     obstacleArray.push(newObstacle);
     newObstacle.moveDownForever();
   }
+  /////////////
+  spawnRed(){
+    let rX = Math.floor(Math.random() * 325);
+    let rY = Math.floor(Math.random() * 1);
+    let rWidth = 80;
+    let rHeight = 60;
+    let newRedBall = new RedBall(rX, rY, rWidth, rHeight);
+    redArray.push(newRedBall);
+    newRedBall.moveDownForever();
 
+  }
+  ///////////////
   clearUnusedObstacles() {
+    /////////////
+    redArray.forEach((redBall, i) => {
+      if (redBall.y > 380) {
+        redArray.splice(i, 1);
+       }
+    });
+    ////////////
     obstacleArray.forEach((ob, i) => {
       if (ob.y > 380) {
         console.log("clearing the obstacle");
@@ -48,6 +66,19 @@ class Game {
   }
   collisionDetect(futureX, futureY) {
     //let canMove = true;
+    //////////////////////
+    redArray.forEach((redBall, j) => {
+      if (
+        futureX + 30 + this.theHero.width >= redBall.x &&
+        futureX + 30 <= redBall.x + redBall.width &&
+        futureY + this.theHero.height >= redBall.y &&
+        futureY <= redBall.y + redBall.height
+      ) {
+        redArray.splice(j, 1);
+        theGame.score -= 10;
+      }
+    });
+    ///////////////////////
     obstacleArray.forEach((obs, j) => {
       if (
         futureX + 30 + this.theHero.width >= obs.x &&
