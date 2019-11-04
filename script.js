@@ -63,6 +63,8 @@ const redBall = new Image();
 redBall.src = "./images/redball.png";
 const ball = new Image();
 ball.src = "./images/ball.gif";
+const scream=new Image();
+scream.src="./images/scream.png";
 
 function drawPlayer(u) {
   ctx.drawImage(player, u.x, u.y, 100, 50);
@@ -89,6 +91,11 @@ let frames = 0;
 
 function mainLoop() {
   frames++;
+  if (theGame.score<=-300) {
+    
+    return;
+
+  }
   setTimeout(theGame.writeScore(), theGame.clearUnusedObstacles(), 400);
   ctx.clearRect(0, 0, 400, 400);
 
