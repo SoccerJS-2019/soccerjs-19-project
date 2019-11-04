@@ -63,8 +63,8 @@ const redBall = new Image();
 redBall.src = "./images/redball.png";
 const ball = new Image();
 ball.src = "./images/ball.gif";
-const scream=new Image();
-scream.src="./images/scream.png";
+const gameOver=new Image();
+gameOver.src="./images/gameover.jpg";
 
 function drawPlayer(u) {
   ctx.drawImage(player, u.x, u.y, 100, 50);
@@ -92,7 +92,7 @@ let frames = 0;
 function mainLoop() {
   frames++;
   if (theGame.score<=-300) {
-    
+    ctx.drawImage(gameOver,0,0,200,200);
     return;
 
   }
