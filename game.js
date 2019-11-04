@@ -19,10 +19,14 @@ class Game {
 
   clearUnusedObstacles() {
     obstacleArray.forEach((ob, i) => {
-      if (ob.y > 420) {
+      if (ob.y > 380) {
         console.log("clearing the obstacle");
         obstacleArray.splice(i, 1);
         this.score -= 10;
+        document.querySelector("#example").classList.add("shaking");
+        setTimeout(() => {
+          document.querySelector("#example").classList.remove("shaking");
+        }, 500);
       }
     });
   }
