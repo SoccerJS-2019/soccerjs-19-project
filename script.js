@@ -98,17 +98,8 @@ function mainLoop() {
   obstacleArray.forEach(eachObstacle => {
     drawSelf(eachObstacle, true);
   });
-<<<<<<< HEAD
-  /////////////
-  redArray.forEach(redBall => {
-    drawRedBall(redBall, true);
-  });
-////////////////////
-  if (frames % 20 === 0) {
-=======
 
   if (frames % 25 === 0) {
->>>>>>> 7fb590ffafe12d6cf37e656f287759dc45359d99
     theGame.spawnObstacle();
   }
 
