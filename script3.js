@@ -4,7 +4,6 @@
 // parent.appendChild(h2Tag);
 // h2Tag.innerHTML = "Elephant";
 
-
 const ctx = document.getElementById("example").getContext("2d");
 //////////////////////////////////////
 const player = new Image();
@@ -30,15 +29,16 @@ function drawBall(u, obs) {
 let frames = 0;
 function mainLoop() {
   frames++;
-  //   if (theGame.score <= -300) {
-  //     ctx.drawImage(gameOver, 0, 0, 200, 200);
-  //     return;
-  //   }
-  setTimeout(theGame.writeScore(), theGame.collisionDetect(theGame.theHero.x,theGame.theHero.y),400);
-  if (theGame.gameOver){
+
+  setTimeout(
+    theGame.writeScore(),
+    theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y),
+    400
+  );
+  if (theGame.gameOver) {
     ctx.drawImage(gameOver, 0, 0, 200, 200);
     return;
-      }
+  }
   ctx.clearRect(0, 0, 400, 400);
   // this is where we draw the hero
   drawPlayer(theGame.theHero);
@@ -46,7 +46,7 @@ function mainLoop() {
   obstacleArray.forEach(eachObstacle => {
     drawBall(eachObstacle, true);
   });
-  
+
   if (theGame.numberOfBalls < 5) {
     if (frames % 400 === 0) {
       theGame.spawnObstacle();

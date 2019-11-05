@@ -19,6 +19,7 @@ class Obstacle {
     this.directionY = 1;
   }
   moveDownForever() {
+      console.log('test')
     setInterval(() => {
       let increment = 10 * Math.random() * this.directionX;
       this.x += increment;
@@ -80,7 +81,7 @@ class Game {
         y >= obstacle.y &&
         y <= obstacle.y + obstacle.height
       ) {
-        this.gameOver = true;
+        this.score+=20;
       }
     });
   }
