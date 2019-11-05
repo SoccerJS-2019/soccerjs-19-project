@@ -44,7 +44,7 @@ class Game {
     this.theHero = new Hero(150, 340, 50, 50);
     this.score = 0;
     this.numberOfBalls = 0;
-    this.gameOver=false;
+    this.gameOver = false;
   }
   writeScore() {
     this.score += 10;
