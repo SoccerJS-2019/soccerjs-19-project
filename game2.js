@@ -20,8 +20,8 @@ class Obstacle {
   }
   moveDownForever() {
     setInterval(() => {
-      this.y += .7 * Math.random() * this.directionY;
-      this.x += .7 * Math.random() * this.directionX;
+      this.y += 0.7 * Math.random() * this.directionY;
+      this.x += 0.7 * Math.random() * this.directionX;
       if (this.x >= 340) {
         this.directionX = -1;
       }
@@ -81,12 +81,12 @@ class Game {
         futureX + 20 + this.theHero.width >= obstacle.x &&
         futureX + 20 <= obstacle.x + obstacle.width &&
         futureY + this.theHero.height >= obstacle.y &&
-        futureY <= obstacle.y + obstacle.height  )
-        {
+        futureY <= obstacle.y + obstacle.height
+      ) {
         return true;
-        } else {
+      } else {
         return false;
-        }
+      }
     });
   }
 }
