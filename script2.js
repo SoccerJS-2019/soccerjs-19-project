@@ -1,3 +1,10 @@
+// let h1=document.createElement('h1')
+// h1.innerHTML="HI"
+// let parent = document.getElementsByTagName('body')[0];
+// parent.appendChild(h2Tag);
+// h2Tag.innerHTML = "Elephant";
+
+
 const ctx = document.getElementById("example").getContext("2d");
 //////////////////////////////////////
 const player = new Image();
@@ -39,20 +46,13 @@ function mainLoop() {
   obstacleArray.forEach(eachObstacle => {
     drawBall(eachObstacle, true);
   });
-  /////////////
-  //   redArray.forEach(redBall => {
-  //     drawRedBall(redBall, true);
-  //   });
-  ////////////////////
+  
   if (theGame.numberOfBalls < 5) {
     if (frames % 400 === 0) {
       theGame.spawnObstacle();
     }
   }
 
-  //   if (frames % 300 === 0) {
-  //     theGame.spawnRed();
-  //   }
   requestAnimationFrame(mainLoop);
 }
 let speed = 50;

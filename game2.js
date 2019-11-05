@@ -35,7 +35,7 @@ class Obstacle {
         this.directionY = 1;
       }
       theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
-    }, 8);
+    }, 2);
   }
 }
 ///////////////////////////////////////////////
@@ -66,23 +66,23 @@ class Game {
       futureX + this.theHero.width <= 400 &&
       futureX >= 0 &&
       futureY + this.theHero.height <= 400 &&
-      futureY >= 0
+      futureY +0.2*this.theHero.height>= 0
     ) {
       this.theHero.x = futureX;
       this.theHero.y = futureY;
     }
-    if (futureX + this.theHero.width >= 380) {
+    if (futureX + this.theHero.width >= 380){
       this.theHero.x = futureX;
       this.theHero.x -= 50;
     }
   }
-  collisionDetect(futureX, futureY) {
+  collisionDetect(x,y) {
     obstacleArray.forEach((obstacle, j) => {
       if (
-        futureX + 20 + this.theHero.width >= obstacle.x &&
-        futureX + 20 <= obstacle.x + obstacle.width &&
-        futureY + this.theHero.height >= obstacle.y &&
-        futureY <= obstacle.y + obstacle.height
+        x+ this.theHero.width >= obstacle.x &&
+        x<= obstacle.x + obstacle.width &&
+        y>= obstacle.y &&
+        y<= obstacle.y + obstacle.height
       ) {
         this.gameOver = true;
       }
