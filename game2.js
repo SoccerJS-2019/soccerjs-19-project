@@ -44,6 +44,7 @@ class Game {
     this.theHero = new Hero(150, 340, 50, 50);
     this.score = 0;
     this.numberOfBalls = 0;
+    this.gameOver=false;
   }
   writeScore() {
     this.score += 10;
@@ -83,9 +84,13 @@ class Game {
         futureY + this.theHero.height >= obstacle.y &&
         futureY <= obstacle.y + obstacle.height
       ) {
+<<<<<<< HEAD
         return true;
       } else {
         return false;
+=======
+        this.gameOver = true;
+>>>>>>> a064ba1cc65a199b9bc828de1058e3c1f0f61d64
       }
     });
   }
