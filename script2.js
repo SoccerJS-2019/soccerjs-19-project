@@ -28,7 +28,7 @@ function mainLoop() {
   //     return;
   //   }
   setTimeout(theGame.writeScore(), theGame.collisionDetect(theGame.theHero.x,theGame.theHero.y),400);
-  if (theGame.collisionDetect(theGame.theHero.x,theGame.theHero.y)){
+  if (theGame.gameOver){
     ctx.drawImage(gameOver, 0, 0, 200, 200);
     return;
       }
