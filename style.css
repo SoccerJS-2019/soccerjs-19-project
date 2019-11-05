@@ -60,8 +60,8 @@ span:nth-child(2) {
 #example {
   border: 0px solid black;
   border-radius: 3px;
-  width: 532px;
-  height: 680px;
+  width: 650px;
+  height: 800px;
   background-color: #ddd;
   background-image: url("images/soccer.jpg");
   background-size: contain;
