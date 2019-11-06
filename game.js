@@ -55,7 +55,6 @@ class RedBall {
   }
 }
 
-
 class Game {
   constructor() {
     this.theHero = new Hero(150, 340, 50, 50);
@@ -133,6 +132,11 @@ class Game {
       ) {
         redArray.splice(j, 1);
         theGame.score -= 300;
+      } else if (redBall.y >= 380) {
+        document.querySelector("#example").classList.add("shaking");
+        setTimeout(() => {
+          document.querySelector("#example").classList.remove("shaking");
+        }, 300);
       }
     });
     ///////////////////////
