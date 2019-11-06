@@ -19,17 +19,22 @@ class Obstacle {
     this.directionY = 1;
   }
   moveDownForever() {
-      console.log('test')
-    setInterval(() => {
+    console.log("test");
+    let x = setInterval(() => {
       let increment = 4 * Math.random() * this.directionX;
       this.x += increment;
-      this.y += increment *increment;
+      this.y += increment * increment;
 
       if (this.x >= 340) {
         this.directionX = -1;
       }
       if (this.x <= -10) {
         this.directionX = 1;
+      }
+
+      if(this.y > 400){
+        spawn=false;
+        clearInterval(x)
       }
 
       theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
@@ -48,14 +53,16 @@ class Game {
     document.getElementById("score1").innerHTML = `${this.score}`;
   }
   spawnObstacle() {
-    let rX = Math.floor(Math.random() * 325);
-    let rY = Math.floor(Math.random() * 1);
+    //spawn=true;
+    let rX = 175;
+    let rY = 0;
     let rWidth = 80;
     let rHeight = 60;
     let newObstacle = new Obstacle(rX, rY, rWidth, rHeight);
     this.numberOfBalls++;
     obstacleArray.push(newObstacle);
-    newObstacle.moveDownForever();
+
+    newObstacle.moveDownForever()
   }
 
   moveHero(futureX, futureY) {
@@ -63,15 +70,11 @@ class Game {
       futureX + this.theHero.width <= 380 &&
       futureX >= 0 &&
       futureY + this.theHero.height <= 400 &&
-      futureY + 0.2 * this.theHero.height >=0
+      futureY + 0.2 * this.theHero.height >= 0
     ) {
       this.theHero.x = futureX;
       this.theHero.y = futureY;
     }
-    // if (futureX + this.theHero.width >= 380) {
-    //   this.theHero.x = futureX;
-    //   this.theHero.x -= 50;
-    // }
   }
   collisionDetect(x, y) {
     obstacleArray.forEach((obstacle, j) => {
@@ -81,7 +84,8 @@ class Game {
         y >= obstacle.y &&
         y <= obstacle.y + obstacle.height
       ) {
-        this.score+=20;
+        this.score += 20;
+        obstacleArray.splice(j,1);
       }
     });
   }
