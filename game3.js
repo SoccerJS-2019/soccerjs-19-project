@@ -60,18 +60,18 @@ class Game {
 
   moveHero(futureX, futureY) {
     if (
-      futureX + this.theHero.width <= 400 &&
+      futureX + this.theHero.width <= 380 &&
       futureX >= 0 &&
       futureY + this.theHero.height <= 400 &&
-      futureY + 0.2 * this.theHero.height >= 0
+      futureY + 0.2 * this.theHero.height >=0
     ) {
       this.theHero.x = futureX;
       this.theHero.y = futureY;
     }
-    if (futureX + this.theHero.width >= 380) {
-      this.theHero.x = futureX;
-      this.theHero.x -= 50;
-    }
+    // if (futureX + this.theHero.width >= 380) {
+    //   this.theHero.x = futureX;
+    //   this.theHero.x -= 50;
+    // }
   }
   collisionDetect(x, y) {
     obstacleArray.forEach((obstacle, j) => {
