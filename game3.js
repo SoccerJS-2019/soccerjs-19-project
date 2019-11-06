@@ -21,9 +21,11 @@ class Obstacle {
   moveDownForever() {
     console.log("test");
     let x = setInterval(() => {
-      let increment = 4 * Math.random() * this.directionX;
-      this.x += increment;
-      this.y += increment * increment;
+      //let increment = 4 * Math.random() * this.directionX;
+      let increment=1;
+      this.y += increment;
+      this.x=Math.abs(Math.sin(this.y)*400-200);
+      //this.y += Math.pow(increment,2);
 
       if (this.x >= 340) {
         this.directionX = -1;
