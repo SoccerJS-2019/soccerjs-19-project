@@ -30,12 +30,20 @@ let frames = 0;
 function mainLoop() {
   console.log(spawn);
   frames++;
+  //////////////////////////
+ // let time = 10
 
-  setTimeout(
-    theGame.writeScore(),
-    theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y),
-    400
-  );
+// let int = setInterval(()=>{
+//  time--;
+//   console.log(time)
+// },1000)
+
+/////////////////////////////////////
+  //setTimeout(()=>{
+    theGame.writeScore();
+    theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
+  //}, 3000
+  //);
 
   ctx.clearRect(0, 0, 400, 400);
   // this is where we draw the hero

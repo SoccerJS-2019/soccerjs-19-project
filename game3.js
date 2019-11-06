@@ -70,7 +70,7 @@ class Game {
       futureX + this.theHero.width <= 380 &&
       futureX >= 0 &&
       futureY + this.theHero.height <= 400 &&
-      futureY + 0.2 * this.theHero.height >= 0
+      futureY + 0.2 * this.theHero.height >= 300
     ) {
       this.theHero.x = futureX;
       this.theHero.y = futureY;
