@@ -109,3 +109,7 @@ span:nth-child(2) {
 canvas {
   position: center;
 }
+#bgsound {
+  width: 0%;
+  height: 0%;
+}
