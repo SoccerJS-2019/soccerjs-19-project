@@ -9,7 +9,7 @@ const ctx = document.getElementById("example").getContext("2d");
 const player = new Image();
 player.src = "./images/player.png";
 const redBall = new Image();
-redBall.src = "./images/redball.png";
+redBall.src = "./images/bb.png";
 const ball = new Image();
 ball.src = "./images/ball.gif";
 const gameOver = new Image();
@@ -19,7 +19,7 @@ function drawPlayer(u) {
 }
 function drawBall(u, obs) {
   if (obs) {
-    ctx.drawImage(redBall, u.x, u.y, 90, 120);
+    ctx.drawImage(redBall, u.x, u.y,50,50);
   } else {
     ctx.drawImage(player, u.x, u.y, 40, 60);
   }
@@ -35,10 +35,10 @@ function mainLoop() {
     theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y),
     400
   );
-  if (theGame.gameOver) {
-    ctx.drawImage(gameOver, 0, 0, 200, 200);
-    return;
-  }
+  // if (theGame.gameOver) {
+  //   ctx.drawImage(gameOver, 0, 0, 200, 200);
+  //   return;
+  // }
   ctx.clearRect(0, 0, 400, 400);
   // this is where we draw the hero
   drawPlayer(theGame.theHero);
@@ -48,7 +48,7 @@ function mainLoop() {
   });
 
   if (theGame.numberOfBalls < 5) {
-    if (frames % 400 === 0) {
+    if (frames % 100 === 0) {
       theGame.spawnObstacle();
     }
   }
