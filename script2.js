@@ -15,11 +15,11 @@ ball.src = "./images/ball.gif";
 const gameOver = new Image();
 gameOver.src = "./images/gameover.jpg";
 function drawPlayer(u) {
-  ctx.drawImage(player, u.x, u.y, 80, 115);
+  ctx.drawImage(player, u.x, u.y, 70, 200);
 }
 function drawBall(u, obs) {
   if (obs) {
-    ctx.drawImage(redBall, u.x, u.y, 60, 60);
+    ctx.drawImage(redBall, u.x, u.y, 30, 50);
   } else {
     ctx.drawImage(player, u.x, u.y, 40, 60);
   }
