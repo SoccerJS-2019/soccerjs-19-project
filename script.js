@@ -47,10 +47,10 @@ function mainLoop() {
     drawRedBall(redBall, true);
   });
   ////////////////////
-  if (frames % 40 === 0) {
+  if (frames % 45 === 0) {
     theGame.spawnObstacle();
   }
-  if (frames % 300 === 0) {
+  if (frames % 350 === 0) {
     theGame.spawnRed();
   }
   requestAnimationFrame(mainLoop);
