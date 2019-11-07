@@ -66,7 +66,6 @@ function mainLoop() {
   }
 
   requestAnimationFrame(mainLoop);
-  
 }
 
 let speed = 50;

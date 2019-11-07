@@ -21,7 +21,7 @@ class Obstacle {
   moveDownForever() {
     console.log("test");
     let x = setInterval(() => {
-      let increment = 5;
+      let increment = 2;
 
       this.y = this.y + increment;
       let possibleX =
@@ -32,12 +32,16 @@ class Obstacle {
 
       if (possibleX >= 340 && this.y < 400 && this.y >= 300) {
         this.x = 340;
+        increment *= 2;
       } else if (possibleX >= 340) {
         this.x = 340 * Math.random();
+        increment *= 2;
       } else if (possibleX <= -10 && this.y < 400 && this.y >= 300) {
         this.x = 340;
+        increment *= 2;
       } else if (possibleX <= -10) {
         this.x = 340 * Math.random();
+        increment *= 2;
       } else {
         this.x = possibleX;
       }
