@@ -116,13 +116,13 @@ class Game {
   collisionDetect(futureX, futureY) {
     redArray.forEach((redBall, j) => {
       if (
-        futureX + 20 + this.theHero.width >= redBall.x &&
-        futureX + 20 <= redBall.x + redBall.width &&
+        futureX + 5 + this.theHero.width >= redBall.x &&
+        futureX <= redBall.x + redBall.width &&
         futureY + this.theHero.height >= redBall.y &&
         futureY <= redBall.y + redBall.height
       ) {
         redArray.splice(j, 1);
-        theGame.score -= 300;
+        theGame.score -= 1000;
       } else if (redBall.y >= 380) {
         document.querySelector("#example").classList.add("shaking");
         setTimeout(() => {
