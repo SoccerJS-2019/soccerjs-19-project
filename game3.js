@@ -22,7 +22,7 @@ class Obstacle {
     console.log("test");
     let x = setInterval(() => {
       let increment = 5;
-      //////started here
+
       this.y = this.y + increment;
       let possibleX =
         this.x +
@@ -30,10 +30,14 @@ class Obstacle {
           Math.random() *
           Math.pow(Math.random() * increment, Math.random() * increment);
 
-      if (possibleX >= 340) {
+      if (possibleX >= 340 && this.y < 400 && this.y >= 300) {
+        this.x = 340;
+      } else if (possibleX >= 340) {
+        this.x = 340 * Math.random();
+      } else if (possibleX <= -10 && this.y < 400 && this.y >= 300) {
         this.x = 340;
       } else if (possibleX <= -10) {
-        this.x = -10;
+        this.x = 340 * Math.random();
       } else {
         this.x = possibleX;
       }
