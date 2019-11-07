@@ -21,27 +21,35 @@ class Obstacle {
   moveDownForever() {
     console.log("test");
     let x = setInterval(() => {
-      let increment = 2;
+      let increment = 3;
 
       this.y = this.y + increment;
-      let possibleX =
+      let possibleX = 
         this.x +
         this.directionX *
           Math.random() *
           Math.pow(Math.random() * increment, Math.random() * increment);
+      if (possibleX <= 175 && this.y < 400 && this.y >= 275) {
+        this.x = 50;
+        increment *=1;
+      }
+      else if (possibleX > 175 && this.y < 400 && this.y >= 275) {
+        this.x = 300;
+        increment *=1;
+      }
 
-      if (possibleX >= 340 && this.y < 400 && this.y >= 300) {
-        this.x = 340;
-        increment *= 2;
+      else if (possibleX >= 340 && this.y < 400 && this.y >= 275) {
+        this.x = 300;
+        increment *=1;
       } else if (possibleX >= 340) {
         this.x = 340 * Math.random();
-        increment *= 2;
-      } else if (possibleX <= -10 && this.y < 400 && this.y >= 300) {
-        this.x = 340;
-        increment *= 2;
+        increment *=1;
+      } else if (possibleX <= -10 && this.y < 400 && this.y >= 275) {
+        this.x = 50;
+        increment *=1;
       } else if (possibleX <= -10) {
         this.x = 340 * Math.random();
-        increment *= 2;
+        increment *=1;
       } else {
         this.x = possibleX;
       }
@@ -83,7 +91,7 @@ class Game {
       futureX + this.theHero.width <= 380 &&
       futureX >= 0 &&
       futureY + this.theHero.height <= 400 &&
-      futureY + 0.2 * this.theHero.height >= 300
+      futureY + 0.2 * this.theHero.height >= 350
     ) {
       this.theHero.x = futureX;
       this.theHero.y = futureY;

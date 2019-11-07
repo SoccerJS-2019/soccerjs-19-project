@@ -33,14 +33,21 @@ function mainLoop() {
   //     ctx.drawImage(gameOver, 0, 0, 200, 200);
   //     return;
   //   }
+
   setTimeout(
     theGame.writeScore(),
     theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y),
     400
   );
   if (theGame.gameOver) {
-    ctx.drawImage(gameOver, 0, 0, 200, 200);
-    return;
+    if (theGame.score <= 0) {
+      let h1Tag = document.createElement("h1");
+      let parent = document.getElementsByTagName('center')[0];
+      h1Tag.innerHTML = `<span id="over">  </span>`
+      parent.appendChild(h1Tag)
+      return;
+    }
+    
   }
   ctx.clearRect(0, 0, 400, 400);
   // this is where we draw the hero
@@ -55,8 +62,9 @@ function mainLoop() {
       theGame.spawnObstacle();
     }
   }
-
   requestAnimationFrame(mainLoop);
+
+  
 }
 let speed = 20;
 document.onkeydown = function(e) {

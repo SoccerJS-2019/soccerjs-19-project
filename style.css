@@ -65,7 +65,7 @@ span:nth-child(2) {
   background-color: #ddd;
   background-image: url("images/soccer.jpg");
   background-size: contain;
-}
+}<span id="score1">0</span>
 #start {
   width: 30vh;
   height: 10vh;
@@ -109,7 +109,25 @@ span:nth-child(2) {
 canvas {
   position: center;
 }
-#bgsound {
-  width: 0%;
-  height: 0%;
+#uefa {
+  width: 70%;
+  height: 70%;
+}
+
+#over{
+  position: absolute;
+  display: block;
+  top: 100% ;
+  bottom:0;
+  left:0;
+  right:0;
+  margin: auto;
+  font-size: 60px;
+  border-style: none;
+  color: red;
+}
+#score1 {
+  border-style: none;
+  margin-left: 0%;
+  font-size: 55px;
 }

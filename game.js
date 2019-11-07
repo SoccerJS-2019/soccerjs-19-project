@@ -8,7 +8,7 @@ class Hero {
     this.width = width;
   }
 }
-/////////////////////////////
+///////////////////////////////////////////
 class Obstacle {
   constructor(x, y, width, height) {
     this.x = x;
@@ -28,7 +28,7 @@ class Obstacle {
         this.direction = 1;
       }
       theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
-    }, 8);
+    }, 6);
   }
 }
 ////////////////////////////Hero.prototype.move = moveHero;
@@ -38,7 +38,7 @@ class RedBall {
     this.y = y;
     this.width = width;
     this.height = height;
-    this.direction = Math.floor(2 * Math.random() - 1);
+    this.direction = 2 * Math.random() - 1;
   }
   moveDownForever() {
     setInterval(() => {
@@ -58,15 +58,14 @@ class RedBall {
 class Game {
   constructor() {
     this.theHero = new Hero(150, 340, 50, 50);
-    //this.obstacleArray = [];
     this.score = 0;
   }
   writeScore() {
     document.getElementById("score1").innerHTML = `${this.score}`;
   }
   spawnObstacle() {
-    let rX = Math.floor(Math.random() * 325);
-    let rY = Math.floor(Math.random() * 1);
+    let rX = Math.random() * 325;
+    let rY = 0;
     let rWidth = 80;
     let rHeight = 60;
     let newObstacle = new Obstacle(rX, rY, rWidth, rHeight);
@@ -85,7 +84,6 @@ class Game {
   }
   ///////////////
   clearUnusedObstacles() {
-    /////////////
     redArray.forEach((redBall, i) => {
       if (redBall.y > 380) {
         redArray.splice(i, 1);
@@ -105,9 +103,8 @@ class Game {
     });
   }
   moveHero(futureX, futureY) {
-    //moveHero transferred from script to here
     if (
-      futureX + this.theHero.width <= 400 &&
+      futureX + this.theHero.width <= 380 &&
       futureX >= 0 &&
       futureY + this.theHero.height <= 400 &&
       futureY >= 0
@@ -115,14 +112,8 @@ class Game {
       this.theHero.x = futureX;
       this.theHero.y = futureY;
     }
-    if (futureX + this.theHero.width >= 380) {
-      this.theHero.x = futureX;
-      this.theHero.x -= 50;
-    }
   }
   collisionDetect(futureX, futureY) {
-    //let canMove = true;
-    //////////////////////
     redArray.forEach((redBall, j) => {
       if (
         futureX + 20 + this.theHero.width >= redBall.x &&
@@ -139,7 +130,6 @@ class Game {
         }, 300);
       }
     });
-    ///////////////////////
     obstacleArray.forEach((obs, j) => {
       if (
         futureX + 30 + this.theHero.width >= obs.x &&

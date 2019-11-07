@@ -42,13 +42,19 @@ class Obstacle {
 class Game {
   constructor() {
     this.theHero = new Hero(140, 160, 50, 50);
-    this.score = 0;
+    this.score = 90;
     this.numberOfBalls = 0;
     this.gameOver = false;
   }
   writeScore() {
-    this.score += 10;
-    document.getElementById("score1").innerHTML = `${this.score}`;
+    this.score -= 0.02;
+    if(this.score<=0){
+      document.getElementById("score1").innerHTML = `<span id="score1">You won!</span>`;
+
+      this.score=0;
+      return;
+    }
+    document.getElementById("score1").innerHTML = `<span id="score1">Time: ${Math.round(this.score)}</span>`;
   }
   spawnObstacle() {
     let rX = Math.floor(Math.random() * 325);

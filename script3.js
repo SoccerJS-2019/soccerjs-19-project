@@ -68,7 +68,7 @@ function mainLoop() {
   requestAnimationFrame(mainLoop);
 }
 
-let speed = 50;
+let speed = 25;
 document.onkeydown = function(e) {
   if (e.keyCode == 32) {
     theGame.moveHero(theGame.theHero.x, 340);

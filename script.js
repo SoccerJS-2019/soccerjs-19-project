@@ -11,7 +11,7 @@ gameOver.src = "./images/gameover.jpg";
 function drawPlayer(u) {
   ctx.drawImage(player, u.x, u.y, 100, 50);
 }
-function drawSelf(u, obs) {
+function drawBall(u, obs) {
   if (obs) {
     ctx.drawImage(ball, u.x, u.y, 90, 120);
   } else {
@@ -26,21 +26,28 @@ function drawRedBall(u, obs) {
     ctx.drawImage(player, u.x, u.y, 40, 60);
   }
 }
-/////////////////////////////
+////////////////////////////////
 let frames = 0;
 function mainLoop() {
   frames++;
-  if (theGame.score <= -300) {
-    ctx.drawImage(gameOver, 0, 0, 200, 200);
+
+  if (theGame.score <= -200) {
+    let h1Tag = document.createElement("h1");
+    let parent = document.getElementsByTagName('center')[0];
+    h1Tag.innerHTML = `<span id="over"> Game Over </span>`
+    parent.appendChild(h1Tag)
     return;
   }
-  setTimeout(theGame.writeScore(), theGame.clearUnusedObstacles(), 400);
+
+  theGame.writeScore();
+  theGame.clearUnusedObstacles();
+
   ctx.clearRect(0, 0, 400, 400);
   // this is where we draw the hero
   drawPlayer(theGame.theHero);
   // then we draw all the obstacles
   obstacleArray.forEach(eachObstacle => {
-    drawSelf(eachObstacle, true);
+    drawBall(eachObstacle, true);
   });
   /////////////
   redArray.forEach(redBall => {
@@ -67,7 +74,7 @@ document.onkeydown = function(e) {
   if (e.key === "ArrowDown") {
     theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y + speed);
     theGame.moveHero(theGame.theHero.x, theGame.theHero.y + speed);
-  }
+  } 
   if (e.key === "ArrowLeft") {
     theGame.collisionDetect(theGame.theHero.x - speed, theGame.theHero.y);
     theGame.moveHero(theGame.theHero.x - speed, theGame.theHero.y);
