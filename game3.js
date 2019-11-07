@@ -21,22 +21,25 @@ class Obstacle {
   moveDownForever() {
     console.log("test");
     let x = setInterval(() => {
-      //let increment = 4 * Math.random() * this.directionX;
-      let increment=1;
-      this.y += increment;
-      this.x=Math.abs(Math.sin(this.y)*400-200);
-      //this.y += Math.pow(increment,2);
+      let increment = 5;
+      //////started here
+      this.y = this.y + increment;
+      let possibleX =
+        this.x +
+        this.directionX *
+          Math.random() *
+          Math.pow(Math.random() * increment, Math.random() * increment);
 
-      if (this.x >= 340) {
-        this.directionX = -1;
+      if (possibleX >= 340) {
+        this.x = 340;
+      } else if (possibleX <= -10) {
+        this.x = -10;
+      } else {
+        this.x = possibleX;
       }
-      if (this.x <= -10) {
-        this.directionX = 1;
-      }
-
-      if(this.y > 400){
-        spawn=false;
-        clearInterval(x)
+      if (this.y > 400) {
+        spawn = false;
+        clearInterval(x);
       }
 
       theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
@@ -64,7 +67,7 @@ class Game {
     this.numberOfBalls++;
     obstacleArray.push(newObstacle);
 
-    newObstacle.moveDownForever()
+    newObstacle.moveDownForever();
   }
 
   moveHero(futureX, futureY) {
@@ -87,7 +90,7 @@ class Game {
         y <= obstacle.y + obstacle.height
       ) {
         this.score += 20;
-        obstacleArray.splice(j,1);
+        obstacleArray.splice(j, 1);
       }
     });
   }

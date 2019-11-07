@@ -31,17 +31,17 @@ function mainLoop() {
   console.log(spawn);
   frames++;
   //////////////////////////
- // let time = 10
+  // let time = 10
 
-// let int = setInterval(()=>{
-//  time--;
-//   console.log(time)
-// },1000)
+  // let int = setInterval(()=>{
+  //  time--;
+  //   console.log(time)
+  // },1000)
 
-/////////////////////////////////////
+  /////////////////////////////////////
   //setTimeout(()=>{
-    theGame.writeScore();
-    theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
+  theGame.writeScore();
+  theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
   //}, 3000
   //);
 
@@ -66,7 +66,9 @@ function mainLoop() {
   }
 
   requestAnimationFrame(mainLoop);
+  
 }
+
 let speed = 50;
 document.onkeydown = function(e) {
   if (e.keyCode == 32) {
