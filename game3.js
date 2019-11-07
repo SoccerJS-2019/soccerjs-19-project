@@ -21,7 +21,7 @@ class Obstacle {
   moveDownForever() {
     console.log("test");
     let x = setInterval(() => {
-      let increment = 2;
+      let increment = 3;
 
       this.y = this.y + increment;
       let possibleX =
