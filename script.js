@@ -39,7 +39,7 @@ function mainLoop() {
       parent.appendChild(h1Tag);
       return;
     }
-    if (theGame.score >= 200) {
+    if (theGame.score >= 300) {
       document.getElementById("score1").innerHTML = `YOU WON!`;
       let h1Tag = document.createElement("h1");
       let parent = document.getElementsByTagName("center")[0];
