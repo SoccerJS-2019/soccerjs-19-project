@@ -38,6 +38,14 @@ function mainLoop() {
     parent.appendChild(h1Tag);
     return;
   }
+  if (theGame.score >= 300) {
+    document.getElementById("score1").innerHTML = `300`;
+    let h1Tag = document.createElement("h1");
+    let parent = document.getElementsByTagName("center")[0];
+    h1Tag.innerHTML = `<span id="over"> Victory </span>`;
+    parent.appendChild(h1Tag);
+    return;
+  }
 
   theGame.writeScore();
   theGame.clearUnusedObstacles();
@@ -54,10 +62,10 @@ function mainLoop() {
     drawRedBall(redBall, true);
   });
   ////////////////////
-  if (frames % 45 === 0) {
+  if (frames % 40 === 0) {
     theGame.spawnObstacle();
   }
-  if (frames % 350 === 0) {
+  if (frames % 450 === 0) {
     theGame.spawnRed();
   }
   requestAnimationFrame(mainLoop);

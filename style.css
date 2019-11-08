@@ -66,11 +66,6 @@ span:nth-child(2) {
   background-image: url("images/soccer.jpg");
   background-size: contain;
 }
-<span id="score1" > 0</span > #start {
-  width: 30vh;
-  height: 10vh;
-  cursor: pointer;
-}
 #start:hover {
   animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
