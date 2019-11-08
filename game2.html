@@ -14,23 +14,34 @@
   <body>
     <audio src="./sounds/crowd.m4a" id="uefa" autoplay></audio>
     <br />
-    <div id="score"><span id="score1"></span></div>
 
-    <center>
-      <canvas
-        id="example"
-        width="400"
-        height="400"
-        style="background-image: url('./images/soccer2.jpg') !important; width: 750px !important; height: 480px !important;"
-      ></canvas
-      ><br /><button id="pause" style="width: 100%; height: 100%">Stop</button
-      ><br />
-      <img
-        src="images/start.png"
-        id="start"
-        title="Start a new game!"
-      />
-    </center>
+    <div class="container">
+        <div class="col1" id="score">
+          Score: <span id="score1">0</span><br />
+          <figure id="fig"><div>
+              <span id="sp">PLAY</span>
+              <span id="sp" class="start">PLAY</span></div>
+            </figure>
+          <figure id="fig"><div>
+            <span id="sp">Back to Main Menu</span>
+            <span id="sp"><a href="menu.html">Back to Main Menu</a></span></div>
+          </figure>
+          
+        </div>
+        <div class="col2">
+            <canvas
+            id="example"
+            width="400"
+            height="400"
+            style="background-image: url('./images/soccer2.jpg') !important; width: 750px !important; height: 480px !important;"
+          ></canvas
+          ><br />
+        </div>
+        <div class="col3"></div>
+        .
+      </div></div>
+      
+    <div id="score"><span id="score1"></span></div>
     <script src="game2.js"></script>
     <script src="script2.js"></script>
   </body>

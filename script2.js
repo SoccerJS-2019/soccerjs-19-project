@@ -87,10 +87,17 @@ document.onkeydown = function(e) {
     theGame.moveHero(theGame.theHero.x + speed, theGame.theHero.y);
   }
 };
-document.getElementById("start").onclick = startGame;
+const start = document.querySelector(".start");
+start.onclick = startGame;
 let theGame;
+let playGame = false;
 function startGame() {
-  playGame = true;
-  theGame = new Game();
-  mainLoop();
+  playGame = !playGame;
+  if (!theGame) {
+    theGame = new Game();
+    mainLoop();
+  }
+  start.innerHTML === "PLAY"
+    ? (start.innerHTML = "PAUSE")
+    : (start.innerHTML = "PLAY");
 }

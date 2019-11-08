@@ -82,10 +82,17 @@ document.onkeydown = function(e) {
   }
 };
 
-document.getElementById("start").onclick = startGame;
+const start = document.querySelector(".start");
+start.onclick = startGame;
 let theGame;
-let playGame = true;
+let playGame = false;
 function startGame() {
-  theGame = new Game();
-  mainLoop();
+  playGame = !playGame;
+  if (!theGame) {
+    theGame = new Game();
+    mainLoop();
+  }
+  start.innerHTML === "PLAY"
+    ? (start.innerHTML = "PAUSE")
+    : (start.innerHTML = "PLAY");
 }
