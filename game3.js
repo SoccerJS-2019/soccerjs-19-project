@@ -21,7 +21,7 @@ class Obstacle {
   moveDownForever() {
     console.log("test");
     let x = setInterval(() => {
-      let increment = 3;
+      let increment = 4;
 
       this.y = this.y + increment;
       let possibleX =
@@ -102,7 +102,7 @@ class Game {
         y >= obstacle.y &&
         y <= obstacle.y + obstacle.height
       ) {
-        this.score += 20;
+        this.score += 10;
         obstacleArray.splice(j, 1);
       }
     });
