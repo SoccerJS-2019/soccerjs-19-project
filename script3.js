@@ -21,7 +21,7 @@ function drawBall(u, obs) {
   if (obs) {
     ctx.drawImage(ball, u.x, u.y, 50, 50);
   } else {
-    ctx.drawImage(player, u.x, u.y, 40, 60);
+    ctx.drawImage(player, u.x, u.y, 50, 50);
   }
 }
 let spawn = false;
@@ -40,7 +40,7 @@ function mainLoop() {
     drawPlayer(theGame.theHero);
 
     if (!spawn) {
-      ctx.drawImage(ball, 175, 0, 50, 50);
+      ctx.drawImage(ball, 175, 0, 60, 80);
     }
 
     // then we draw all the obstacles
@@ -59,7 +59,7 @@ function mainLoop() {
   requestAnimationFrame(mainLoop);
 }
 
-let speed = 25;
+let speed = 20;
 document.onkeydown = function(e) {
   if (e.keyCode === 32) {
     playGame = !playGame;
