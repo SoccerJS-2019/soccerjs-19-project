@@ -24,32 +24,29 @@ class Obstacle {
       let increment = 3;
 
       this.y = this.y + increment;
-      let possibleX = 
+      let possibleX =
         this.x +
         this.directionX *
           Math.random() *
           Math.pow(Math.random() * increment, Math.random() * increment);
       if (possibleX <= 175 && this.y < 400 && this.y >= 275) {
         this.x = 50;
-        increment *=1;
-      }
-      else if (possibleX > 175 && this.y < 400 && this.y >= 275) {
+        increment *= 1;
+      } else if (possibleX > 175 && this.y < 400 && this.y >= 275) {
         this.x = 300;
-        increment *=1;
-      }
-
-      else if (possibleX >= 340 && this.y < 400 && this.y >= 275) {
+        increment *= 1;
+      } else if (possibleX >= 340 && this.y < 400 && this.y >= 275) {
         this.x = 300;
-        increment *=1;
+        increment *= 1;
       } else if (possibleX >= 340) {
         this.x = 340 * Math.random();
-        increment *=1;
+        increment *= 1;
       } else if (possibleX <= -10 && this.y < 400 && this.y >= 275) {
         this.x = 50;
-        increment *=1;
+        increment *= 1;
       } else if (possibleX <= -10) {
         this.x = 340 * Math.random();
-        increment *=1;
+        increment *= 1;
       } else {
         this.x = possibleX;
       }

@@ -48,13 +48,17 @@ class Game {
   }
   writeScore() {
     this.score -= 0.02;
-    if(this.score<=0){
-      document.getElementById("score1").innerHTML = `<span id="score1">You won!</span>`;
+    if (this.score <= 0) {
+      document.getElementById(
+        "score1"
+      ).innerHTML = `<span id="score1">You won!</span>`;
 
-      this.score=0;
+      this.score = 0;
       return;
     }
-    document.getElementById("score1").innerHTML = `<span id="score1">Time: ${Math.round(this.score)}</span>`;
+    document.getElementById(
+      "score1"
+    ).innerHTML = `<span id="score1">Time: ${Math.round(this.score)}</span>`;
   }
   spawnObstacle() {
     let rX = Math.floor(Math.random() * 325);

@@ -33,9 +33,9 @@ function mainLoop() {
 
   if (theGame.score <= -200) {
     let h1Tag = document.createElement("h1");
-    let parent = document.getElementsByTagName('center')[0];
-    h1Tag.innerHTML = `<span id="over"> Game Over </span>`
-    parent.appendChild(h1Tag)
+    let parent = document.getElementsByTagName("center")[0];
+    h1Tag.innerHTML = `<span id="over"> Game Over </span>`;
+    parent.appendChild(h1Tag);
     return;
   }
 
@@ -74,7 +74,7 @@ document.onkeydown = function(e) {
   if (e.key === "ArrowDown") {
     theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y + speed);
     theGame.moveHero(theGame.theHero.x, theGame.theHero.y + speed);
-  } 
+  }
   if (e.key === "ArrowLeft") {
     theGame.collisionDetect(theGame.theHero.x - speed, theGame.theHero.y);
     theGame.moveHero(theGame.theHero.x - speed, theGame.theHero.y);

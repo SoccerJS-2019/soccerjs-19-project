@@ -65,8 +65,8 @@ span:nth-child(2) {
   background-color: #ddd;
   background-image: url("images/soccer.jpg");
   background-size: contain;
-}<span id="score1">0</span>
-#start {
+}
+<span id="score1" > 0</span > #start {
   width: 30vh;
   height: 10vh;
   cursor: pointer;
@@ -114,13 +114,13 @@ canvas {
   height: 70%;
 }
 
-#over{
+#over {
   position: absolute;
   display: block;
-  top: 100% ;
-  bottom:0;
-  left:0;
-  right:0;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin: auto;
   font-size: 60px;
   border-style: none;

@@ -42,12 +42,11 @@ function mainLoop() {
   if (theGame.gameOver) {
     if (theGame.score <= 0) {
       let h1Tag = document.createElement("h1");
-      let parent = document.getElementsByTagName('center')[0];
-      h1Tag.innerHTML = `<span id="over">  </span>`
-      parent.appendChild(h1Tag)
+      let parent = document.getElementsByTagName("center")[0];
+      h1Tag.innerHTML = `<span id="over">  </span>`;
+      parent.appendChild(h1Tag);
       return;
     }
-    
   }
   ctx.clearRect(0, 0, 400, 400);
   // this is where we draw the hero
@@ -63,8 +62,6 @@ function mainLoop() {
     }
   }
   requestAnimationFrame(mainLoop);
-
-  
 }
 let speed = 20;
 document.onkeydown = function(e) {
