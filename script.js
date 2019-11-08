@@ -99,9 +99,14 @@ document.onkeydown = function(e) {
 };
 
 document.getElementById("start").onclick = startGame;
+let count = 0;
 let theGame;
+let playGame = false;
+
 function startGame() {
-  playGame = true;
-  theGame = new Game();
-  mainLoop();
+  playGame = !playGame;
+  if (!theGame) {
+    theGame = new Game();
+    mainLoop();
+  }
 }
