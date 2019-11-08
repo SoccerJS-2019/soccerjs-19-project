@@ -44,7 +44,7 @@ function mainLoop() {
       if (theGame.score <= 0) {
         let h1Tag = document.createElement("h1");
         let parent = document.getElementsByTagName("center")[0];
-        h1Tag.innerHTML = `<span id="over">  </span>`;
+        h1Tag.innerHTML = `<span id="over"> Game Over! </span>`;
         parent.appendChild(h1Tag);
         return;
       }

@@ -33,12 +33,17 @@ function mainLoop() {
     frames++;
 
     if (theGame.score <= -200) {
-      document.getElementById("score1").innerHTML = `<h3>GAME OVER</h3>`;
+      let h1Tag = document.createElement("h1");
+      let parent = document.getElementsByTagName("center")[0];
+      h1Tag.innerHTML = `<span id="over"> Game Over </span>`;
       parent.appendChild(h1Tag);
       return;
     }
-    if (theGame.score >= 250) {
-      document.getElementById("score1").innerHTML = `<h3>YOU WON</h3>`;
+    if (theGame.score >= 200) {
+      document.getElementById("score1").innerHTML = `YOU WON!`;
+      let h1Tag = document.createElement("h1");
+      let parent = document.getElementsByTagName("center")[0];
+      h1Tag.innerHTML = `<span id="over"> Victory </span>`;
       parent.appendChild(h1Tag);
       return;
     }
