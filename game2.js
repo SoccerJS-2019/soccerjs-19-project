@@ -42,7 +42,7 @@ class Obstacle {
 class Game {
   constructor() {
     this.theHero = new Hero(140, 160, 50, 50);
-    this.score = 90;
+    this.score = 30;
     this.numberOfBalls = 0;
     this.gameOver = false;
   }
