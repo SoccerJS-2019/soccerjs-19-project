@@ -92,9 +92,16 @@ document.onkeydown = function(e) {
     theGame.moveHero(theGame.theHero.x + speed, theGame.theHero.y);
   }
 };
-document.getElementById("start").onclick = startGame;
+const start = document.querySelector(".start");
+start.onclick = startGame;
 let theGame;
 function startGame() {
-  theGame = new Game();
-  mainLoop();
+  if (start.innerHTML === "PLAY") {
+    playGame = true;
+    theGame = new Game();
+    mainLoop();
+  }
+  else {
+    playGame = !playGame;
+  }
 }
