@@ -28,45 +28,47 @@ function drawBall(u, obs) {
 /////////////////////////////
 let frames = 0;
 function mainLoop() {
-  frames++;
-  //   if (theGame.score <= -300) {
-  //     ctx.drawImage(gameOver, 0, 0, 200, 200);
-  //     return;
-  //   }
+  if (playGame) {
+    frames++;
+    //   if (theGame.score <= -300) {
+    //     ctx.drawImage(gameOver, 0, 0, 200, 200);
+    //     return;
+    //   }
 
-  setTimeout(
-    theGame.writeScore(),
-    theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y),
-    400
-  );
-  if (theGame.gameOver) {
-    if (theGame.score <= 0) {
-      let h1Tag = document.createElement("h1");
-      let parent = document.getElementsByTagName("center")[0];
-      h1Tag.innerHTML = `<span id="over">  </span>`;
-      parent.appendChild(h1Tag);
-      return;
+    setTimeout(
+      theGame.writeScore(),
+      theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y),
+      400
+    );
+    if (theGame.gameOver) {
+      if (theGame.score <= 0) {
+        let h1Tag = document.createElement("h1");
+        let parent = document.getElementsByTagName("center")[0];
+        h1Tag.innerHTML = `<span id="over">  </span>`;
+        parent.appendChild(h1Tag);
+        return;
+      }
     }
-  }
-  ctx.clearRect(0, 0, 400, 400);
-  // this is where we draw the hero
-  drawPlayer(theGame.theHero);
-  // then we draw all the obstacles
-  obstacleArray.forEach(eachObstacle => {
-    drawBall(eachObstacle, true);
-  });
+    ctx.clearRect(0, 0, 400, 400);
+    // this is where we draw the hero
+    drawPlayer(theGame.theHero);
+    // then we draw all the obstacles
+    obstacleArray.forEach(eachObstacle => {
+      drawBall(eachObstacle, true);
+    });
 
-  if (theGame.numberOfBalls < 4) {
-    if (frames % 300 === 0) {
-      theGame.spawnObstacle();
+    if (theGame.numberOfBalls < 4) {
+      if (frames % 300 === 0) {
+        theGame.spawnObstacle();
+      }
     }
   }
   requestAnimationFrame(mainLoop);
 }
 let speed = 20;
 document.onkeydown = function(e) {
-  if (e.keyCode == 32) {
-    theGame.moveHero(theGame.theHero.x, 340);
+  if (e.keyCode === 32) {
+    playGame = !playGame;
   }
   if (e.key === "ArrowUp") {
     theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y - speed);
@@ -88,6 +90,7 @@ document.onkeydown = function(e) {
 document.getElementById("start").onclick = startGame;
 let theGame;
 function startGame() {
+  playGame = true;
   theGame = new Game();
   mainLoop();
 }

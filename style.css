@@ -8,6 +8,7 @@ body {
   font-family: "McLaren", cursive;
   font-family: "Righteous", cursive;
   font-family: "Rajdhani", sans-serif;
+  user-select: none;
 }
 figure {
   width: 360px;

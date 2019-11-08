@@ -29,51 +29,56 @@ function drawRedBall(u, obs) {
 ////////////////////////////////
 let frames = 0;
 function mainLoop() {
-  frames++;
+  if (playGame) {
+    frames++;
 
-  if (theGame.score <= -200) {
-    let h1Tag = document.createElement("h1");
-    let parent = document.getElementsByTagName("center")[0];
-    h1Tag.innerHTML = `<span id="over"> Game Over </span>`;
-    parent.appendChild(h1Tag);
-    return;
-  }
-  if (theGame.score >= 300) {
-    document.getElementById("score1").innerHTML = `300`;
-    let h1Tag = document.createElement("h1");
-    let parent = document.getElementsByTagName("center")[0];
-    h1Tag.innerHTML = `<span id="over"> Victory </span>`;
-    parent.appendChild(h1Tag);
-    return;
+    if (theGame.score <= -200) {
+      let h1Tag = document.createElement("h1");
+      let parent = document.getElementsByTagName("center")[0];
+      h1Tag.innerHTML = `<span id="over"> Game Over </span>`;
+      parent.appendChild(h1Tag);
+      return;
+    }
+    if (theGame.score >= 300) {
+      document.getElementById("score1").innerHTML = `300`;
+      let h1Tag = document.createElement("h1");
+      let parent = document.getElementsByTagName("center")[0];
+      h1Tag.innerHTML = `<span id="over"> Victory </span>`;
+      parent.appendChild(h1Tag);
+      return;
+    }
+
+    theGame.writeScore();
+    theGame.clearUnusedObstacles();
+
+    ctx.clearRect(0, 0, 400, 400);
+    // this is where we draw the hero
+    drawPlayer(theGame.theHero);
+    // then we draw all the obstacles
+    obstacleArray.forEach(eachObstacle => {
+      drawBall(eachObstacle, true);
+    });
+    /////////////
+    redArray.forEach(redBall => {
+      drawRedBall(redBall, true);
+    });
+    ////////////////////
+    if (frames % 40 === 0) {
+      theGame.spawnObstacle();
+    }
+    if (frames % 450 === 0) {
+      theGame.spawnRed();
+    }
   }
 
-  theGame.writeScore();
-  theGame.clearUnusedObstacles();
-
-  ctx.clearRect(0, 0, 400, 400);
-  // this is where we draw the hero
-  drawPlayer(theGame.theHero);
-  // then we draw all the obstacles
-  obstacleArray.forEach(eachObstacle => {
-    drawBall(eachObstacle, true);
-  });
-  /////////////
-  redArray.forEach(redBall => {
-    drawRedBall(redBall, true);
-  });
-  ////////////////////
-  if (frames % 40 === 0) {
-    theGame.spawnObstacle();
-  }
-  if (frames % 450 === 0) {
-    theGame.spawnRed();
-  }
   requestAnimationFrame(mainLoop);
 }
+
 let speed = 50;
+
 document.onkeydown = function(e) {
-  if (e.keyCode == 32) {
-    theGame.moveHero(theGame.theHero.x, 340);
+  if (e.keyCode === 32) {
+    playGame = !playGame;
   }
   if (e.key === "ArrowUp") {
     theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y - speed);
@@ -92,16 +97,18 @@ document.onkeydown = function(e) {
     theGame.moveHero(theGame.theHero.x + speed, theGame.theHero.y);
   }
 };
+
 const start = document.querySelector(".start");
 start.onclick = startGame;
 let theGame;
+let playGame = false;
 function startGame() {
-  if (start.innerHTML === "PLAY") {
-    playGame = true;
+  playGame = !playGame;
+  if (!theGame) {
     theGame = new Game();
     mainLoop();
   }
-  else {
-    playGame = !playGame;
-  }
+  start.innerHTML === "PLAY"
+    ? (start.innerHTML = "PAUSE")
+    : (start.innerHTML = "PLAY");
 }
