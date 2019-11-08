@@ -15,11 +15,11 @@ ball.src = "./images/ball.gif";
 const gameOver = new Image();
 gameOver.src = "./images/gameover.jpg";
 function drawPlayer(u) {
-  ctx.drawImage(player, u.x, u.y, 100, 50);
+  ctx.drawImage(player, u.x, u.y, 70, 50);
 }
 function drawBall(u, obs) {
   if (obs) {
-    ctx.drawImage(ball, u.x, u.y, 50, 50);
+    ctx.drawImage(ball, u.x, u.y, 60, 80);
   } else {
     ctx.drawImage(player, u.x, u.y, 50, 50);
   }
@@ -49,7 +49,7 @@ function mainLoop() {
     });
 
     if (theGame.numberOfBalls < 10) {
-      if (frames % 300 === 0) {
+      if (frames % 250 === 0) {
         theGame.spawnObstacle();
         spawn = true;
       }
