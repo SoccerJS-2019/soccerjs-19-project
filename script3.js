@@ -19,7 +19,7 @@ function drawPlayer(u) {
 }
 function drawBall(u, obs) {
   if (obs) {
-    ctx.drawImage(ball, u.x, u.y, 50, 50);
+    ctx.drawImage(ball, u.x, u.y, 60, 80);
   } else {
     ctx.drawImage(player, u.x, u.y, 50, 50);
   }
