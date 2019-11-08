@@ -28,40 +28,31 @@ let spawn = false;
 /////////////////////////////
 let frames = 0;
 function mainLoop() {
-  console.log(spawn);
-  frames++;
-  //////////////////////////
-  // let time = 10
+  if (playGame) {
+    frames++;
+    //////////////////////////
 
-  // let int = setInterval(()=>{
-  //  time--;
-  //   console.log(time)
-  // },1000)
+    theGame.writeScore();
+    theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
 
-  /////////////////////////////////////
-  //setTimeout(()=>{
-  theGame.writeScore();
-  theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y);
-  //}, 3000
-  //);
+    ctx.clearRect(0, 0, 400, 400);
+    // this is where we draw the hero
+    drawPlayer(theGame.theHero);
 
-  ctx.clearRect(0, 0, 400, 400);
-  // this is where we draw the hero
-  drawPlayer(theGame.theHero);
+    if (!spawn) {
+      ctx.drawImage(ball, 175, 0, 50, 50);
+    }
 
-  if (!spawn) {
-    ctx.drawImage(ball, 175, 0, 50, 50);
-  }
+    // then we draw all the obstacles
+    obstacleArray.forEach(eachObstacle => {
+      drawBall(eachObstacle, true);
+    });
 
-  // then we draw all the obstacles
-  obstacleArray.forEach(eachObstacle => {
-    drawBall(eachObstacle, true);
-  });
-
-  if (theGame.numberOfBalls < 10) {
-    if (frames % 300 === 0) {
-      theGame.spawnObstacle();
-      spawn = true;
+    if (theGame.numberOfBalls < 10) {
+      if (frames % 300 === 0) {
+        theGame.spawnObstacle();
+        spawn = true;
+      }
     }
   }
 
@@ -70,8 +61,8 @@ function mainLoop() {
 
 let speed = 25;
 document.onkeydown = function(e) {
-  if (e.keyCode == 32) {
-    theGame.moveHero(theGame.theHero.x, 340);
+  if (e.keyCode === 32) {
+    playGame = !playGame;
   }
   if (e.key === "ArrowUp") {
     theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y - speed);
@@ -93,6 +84,7 @@ document.onkeydown = function(e) {
 
 document.getElementById("start").onclick = startGame;
 let theGame;
+let playGame = true;
 function startGame() {
   theGame = new Game();
   mainLoop();
