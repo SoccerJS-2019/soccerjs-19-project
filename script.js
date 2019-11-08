@@ -98,15 +98,28 @@ document.onkeydown = function(e) {
   }
 };
 
+<<<<<<< HEAD
 document.getElementById("start").onclick = startGame;
 let count = 0;
 let theGame;
 let playGame = false;
 
+=======
+const start = document.querySelector(".start");
+start.onclick = startGame;
+let theGame;
+let playGame = false;
+>>>>>>> 57f6c7f8b29268efdeabc2511ba00f0ad7be6d72
 function startGame() {
   playGame = !playGame;
   if (!theGame) {
     theGame = new Game();
     mainLoop();
   }
+<<<<<<< HEAD
+=======
+  start.innerHTML === "PLAY"
+    ? (start.innerHTML = "PAUSE")
+    : (start.innerHTML = "PLAY");
+>>>>>>> 57f6c7f8b29268efdeabc2511ba00f0ad7be6d72
 }
