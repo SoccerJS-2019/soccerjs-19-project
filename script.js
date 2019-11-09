@@ -37,6 +37,7 @@ function mainLoop() {
       let parent = document.getElementsByTagName("center")[0];
       h1Tag.innerHTML = `<span id="over"> Game Over </span>`;
       parent.appendChild(h1Tag);
+      alert('GAME OVER!')
       return;
     }
     if (theGame.score >= 300) {
@@ -45,6 +46,7 @@ function mainLoop() {
       let parent = document.getElementsByTagName("center")[0];
       h1Tag.innerHTML = `<span id="over"> Victory </span>`;
       parent.appendChild(h1Tag);
+      alert('Congrats! You won!')
       return;
     }
 
