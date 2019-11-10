@@ -48,7 +48,6 @@ function mainLoop() {
       alert('Congrats! You won!')
       return;
     }
-
     theGame.writeScore();
     theGame.clearUnusedObstacles();
 
