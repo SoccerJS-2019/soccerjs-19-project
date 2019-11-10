@@ -50,7 +50,6 @@ function mainLoop() {
     }
     theGame.writeScore();
     theGame.clearUnusedObstacles();
-
     ctx.clearRect(0, 0, 400, 400);
     // this is where we draw the hero
     drawPlayer(theGame.theHero);
