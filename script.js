@@ -31,7 +31,6 @@ let frames = 0;
 function mainLoop() {
   if (playGame) {
     frames++;
-
     if (theGame.score <= -200) {
       let h1Tag = document.createElement("h1");
       let parent = document.getElementsByTagName("center")[0];
