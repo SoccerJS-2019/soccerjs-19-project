@@ -27,7 +27,6 @@ function drawRedBall(u, obs) {
   }
 }
 ////////////////////////////////
-
 let frames = 0;
 function mainLoop() {
   if (playGame) {
