@@ -70,7 +70,6 @@ class Game {
     obstacleArray.push(newObstacle);
     newObstacle.moveDownForever();
   }
-
   moveHero(futureX, futureY) {
     if (
       futureX + this.theHero.width <= 400 &&
