@@ -52,7 +52,6 @@ class Game {
       document.getElementById(
         "score1"
       ).innerHTML = `<span id="score1">You won!</span>`;
-
       this.score = 0;
       return;
     }
