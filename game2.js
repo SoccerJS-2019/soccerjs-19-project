@@ -84,6 +84,7 @@ class Game {
       this.theHero.x -= 50;
     }
   }
+  
   collisionDetect(x, y) {
     obstacleArray.forEach((obstacle, j) => {
       if (
