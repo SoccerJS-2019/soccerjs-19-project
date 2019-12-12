@@ -74,7 +74,6 @@ function mainLoop() {
 }
 
 let speed = 50;
-
 document.onkeydown = function(e) {
   if (e.keyCode === 32) {
     playGame = !playGame;
@@ -96,7 +95,6 @@ document.onkeydown = function(e) {
     theGame.moveHero(theGame.theHero.x + speed, theGame.theHero.y);
   }
 };
-
 const start = document.querySelector(".start");
 start.onclick = startGame;
 let theGame;
