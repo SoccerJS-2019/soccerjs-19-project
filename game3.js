@@ -61,6 +61,7 @@ class Game {
   writeScore() {
     document.getElementById("score1").innerHTML = `${this.score}`;
   }
+  
   spawnObstacle() {
     //spawn=true;
     let rX = 175;
@@ -73,7 +74,6 @@ class Game {
 
     newObstacle.moveDownForever();
   }
-
   moveHero(futureX, futureY) {
     if (
       futureX + this.theHero.width <= 380 &&
